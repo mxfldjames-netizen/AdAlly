@@ -31,8 +31,8 @@ const videoData = [
     id: 3,
     title: "Product Showcase",
     thumbnail:
-      "https://teknonel.com/wp-content/uploads/2022/06/5-Best-gaming-mouse-under-30-in-2022-min.jpg",
-    video: "https://www.youtube.com/embed/M7lc1UVf-VE",
+      "https://drive.google.com/file/d/1dIx6GQcw6RP_ra2ppQYcUoyRa3ZyWwm4/preview" width="640" height="480" allow="autoplay",
+    video: "https://youtu.be/QmhYvijIrZ0",
     orientation: "landscape",
   },
   {
