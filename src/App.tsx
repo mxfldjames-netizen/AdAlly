@@ -32,7 +32,7 @@ const videoData = [
     title: "Product Showcase",
     thumbnail:
       "https://drive.google.com/file/d/1dIx6GQcw6RP_ra2ppQYcUoyRa3ZyWwm4/preview"",
-    video: "https://youtu.be/QmhYvijIrZ0",
+    video: "https://www.youtube.com/embed/QmhYvijIrZ0",
     orientation: "landscape",
   },
   {
