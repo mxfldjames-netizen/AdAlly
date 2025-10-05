@@ -31,7 +31,7 @@ const videoData = [
     id: 3,
     title: "Product Showcase",
     thumbnail:
-      "https://drive.google.com/file/d/1dIx6GQcw6RP_ra2ppQYcUoyRa3ZyWwm4/preview" width="640" height="480" allow="autoplay",
+      "https://drive.google.com/file/d/1dIx6GQcw6RP_ra2ppQYcUoyRa3ZyWwm4/preview"",
     video: "https://youtu.be/QmhYvijIrZ0",
     orientation: "landscape",
   },
