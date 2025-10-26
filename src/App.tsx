@@ -24,7 +24,7 @@ const videoData = [
     title: "Smart Water", 
     thumbnail:
       "https://images-na.ssl-images-amazon.com/images/I/31GjEJUp2EL.jpg",
-    video: "https://youtube.comembed/IElyVw87iWE",
+    video: "https://youtube.com/embed/IElyVw87iWE",
     orientation: "vertical",
   },
   {
