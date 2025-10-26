@@ -29,9 +29,9 @@ const videoData = [
   },
   {
     id: 3,
-    title: "Product Showcase",
+    title: "Lamborghini Huracan",
     thumbnail:
-      <iframe src="https://drive.google.com/file/d/1dIx6GQcw6RP_ra2ppQYcUoyRa3ZyWwm4/preview" width="640" height="480" allow="autoplay"></iframe>,
+      <iframe src="https://assets.zyrosite.com/dWxOrW2p4OtD7WKY/shot1-00910-mxB7Wb7OqRtNbpXD.png" width="640" height="480" allow="autoplay"></iframe>,
     video: "https://www.youtube.com/embed/QmhYvijIrZ0",
     orientation: "landscape",
   },
