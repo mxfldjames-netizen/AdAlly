@@ -21,10 +21,10 @@ const videoData = [
   },
   {
     id: 2,
-    title: "Tech Animation", 
+    title: "Smart Water", 
     thumbnail:
       "https://images-na.ssl-images-amazon.com/images/I/31GjEJUp2EL.jpg",
-    video: "https://www.youtube.com/embed/jNQXAC9IVRw",
+    video: "https://youtube.comembed/IElyVw87iWE",
     orientation: "vertical",
   },
   {
