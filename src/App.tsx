@@ -37,7 +37,7 @@ const videoData = [
   },
   {
     id: 4,
-    title: "not,
+    title: "not",
     thumbnail:
       "https://tse2.mm.bing.net/th/id/OIP.udVRZ3t2BwxQW9GlKTu1fgHaNE?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     video: "https://www.youtube.com/embed/YyNz4--6fro",
