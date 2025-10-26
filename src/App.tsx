@@ -53,10 +53,10 @@ const videoData = [
   },
   {
     id: 6,
-    title: "AI Visualization",
+    title: "Perplexity",
     thumbnail:
-      "https://img.freepik.com/premium-photo/innovative-intelligence-artificial-intelligence-depicted-through-brain-digital-elements-vertical_904318-11327.jpg",
-    video: "https://www.youtube.com/embed/9bZkp7q19f0",
+      "https://assets.zyrosite.com/dWxOrW2p4OtD7WKY/5556effb-f8b3-451e-98ad-9a07d45bc0da_1920x1080-YyvDpqxzVVIZRlNz.png",
+    video: "https://www.youtube.com/embed/5Wo7Ljn-Hdw?feature=share",
     orientation: "vertical",
   },
   {
