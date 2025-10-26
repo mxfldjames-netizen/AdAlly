@@ -62,7 +62,7 @@ const videoData = [
   {
     id: 7,
     title: "Muscle Nectar",
-    thumbnail: "https://wallpaperaccess.com/full/176937.jpg",
+    thumbnail: "https://assets.zyrosite.com/dWxOrW2p4OtD7WKY/muscle-nectar-01-YyvDpqb4rGSXkz5X.webp",
     video: "https://www.youtube.com/embed/hvxnUYH6kss",
     orientation: "landscape",
   },
