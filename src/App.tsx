@@ -13,7 +13,7 @@ import DashboardPage from "./pages/DashboardPage";
 const videoData = [
   {
     id: 1,
-    title: "AI Commercial",
+    title: "Lamborghini Huracan Short Film",
     thumbnail:
       "https://m.media-amazon.com/images/S/aplus-media/vc/09679e0b-d23f-4afb-a821-7bd728d91562.__CR0,0,970,600_PT0_SX970_V1___.png",
     video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
