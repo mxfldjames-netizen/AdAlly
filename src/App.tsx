@@ -31,7 +31,7 @@ const videoData = [
     id: 3,
     title: "Lamborghini Huracan",
     thumbnail:
-      "https://assets.zyrosite.com/dWxOrW2p4OtD7WKY/shot1-00910-mxB7Wb7OqRtNbpXD.png",
+      "https://www.exoticcarhacks.com/wp-content/uploads/2024/02/D-8WJU7I-scaled.jpeg",
     video: "https://www.youtube.com/embed/dCr_STXffWU",
     orientation: "landscape",
   },
