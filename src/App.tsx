@@ -40,7 +40,7 @@ const videoData = [
     title: "Gruns",
     thumbnail:
       "https://assets.zyrosite.com/dWxOrW2p4OtD7WKY/screenshot-2025-10-27-at-12.12.50a-am-YD0EMaO9GwcBWn3n.png",
-    video: "hhttps://www.youtube.com/shorts/7I073l2A3Ok",
+    video: "hhttps://www.youtube.com/embed/7I073l2A3Ok",
     orientation: "vertical",
   },
   {
