@@ -68,10 +68,10 @@ const videoData = [
   },
   {
     id: 8,
-    title: "Future Tech",
+    title: "Puffy Mattress",
     thumbnail:
       "https://tse3.mm.bing.net/th/id/OIP.hzXCVO3ceyYL35RSiDGBvAHaHn?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
-    video: "https://www.youtube.com/embed/fJ9rUzIMcZQ",
+    video: "https://youtube.com/embed/ArwzR5cSSDQ?feature=share",
     orientation: "vertical",
   },
   {
