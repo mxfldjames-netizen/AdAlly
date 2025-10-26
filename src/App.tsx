@@ -31,7 +31,7 @@ const videoData = [
     id: 3,
     title: "Lamborghini Huracan",
     thumbnail:
-      "https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/facelift_2019/model_gw/huracan/2023/09_18_refresh/gallery/gw_hura_05.jpg",
+      "https://assets.zyrosite.com/dWxOrW2p4OtD7WKY/shot1-00910-mxB7Wb7OqRtNbpXD.png",
     video: "https://www.youtube.com/embed/QmhYvijIrZ0",
     orientation: "landscape",
   },
