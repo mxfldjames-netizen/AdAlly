@@ -13,7 +13,7 @@ import DashboardPage from "./pages/DashboardPage";
 const videoData = [
   {
     id: 1,
-    title: "Lamborghini Huracan",
+    title: "Nop",
     thumbnail:
       "https://m.media-amazon.com/images/S/aplus-media/vc/09679e0b-d23f-4afb-a821-7bd728d91562.__CR0,0,970,600_PT0_SX970_V1___.png",
     video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
@@ -37,7 +37,7 @@ const videoData = [
   },
   {
     id: 4,
-    title: "Lamborghini",
+    title: "not,
     thumbnail:
       "https://tse2.mm.bing.net/th/id/OIP.udVRZ3t2BwxQW9GlKTu1fgHaNE?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     video: "https://www.youtube.com/embed/YyNz4--6fro",
