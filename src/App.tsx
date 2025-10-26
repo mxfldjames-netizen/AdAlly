@@ -61,9 +61,9 @@ const videoData = [
   },
   {
     id: 7,
-    title: "Digital Art",
+    title: "Muscle Nectar",
     thumbnail: "https://wallpaperaccess.com/full/176937.jpg",
-    video: "https://www.youtube.com/embed/ScMzIvxBSi4",
+    video: "https://www.youtube.com/embed/hvxnUYH6kss",
     orientation: "landscape",
   },
   {
