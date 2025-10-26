@@ -45,10 +45,10 @@ const videoData = [
   },
   {
     id: 5,
-    title: "Motion Graphics",
+    title: "Jaguar",
     thumbnail:
-      "https://cubicleninjas.com/wp-content/uploads/2019/09/motion-graphics-examples.jpg",
-    video: "https://www.youtube.com/embed/L_jWHffIx5E",
+      "https://i9.ytimg.com/vi_webp/QmhYvijIrZ0/mqdefault.webp?v=68a615bd&sqp=CNTT-ccG&rs=AOn4CLAsIulTAcjOYH4wPgBbkPaFwwsgKQ",
+    video: "https://www.youtube.com/embed/QmhYvijIrZ0",
     orientation: "landscape",
   },
   {
