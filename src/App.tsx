@@ -37,10 +37,10 @@ const videoData = [
   },
   {
     id: 4,
-    title: "not",
+    title: "Gruns",
     thumbnail:
-      "https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/facelift_2019/model_gw/huracan/2023/09_18_refresh/gallery/gw_hura_05.jpg",
-    video: "https://www.youtube.com/embed/YyNz4--6fro",
+      "https://assets.zyrosite.com/dWxOrW2p4OtD7WKY/screenshot-2025-10-27-at-12.12.50a-am-YD0EMaO9GwcBWn3n.png",
+    video: "hhttps://www.youtube.com/shorts/7I073l2A3Ok",
     orientation: "vertical",
   },
   {
