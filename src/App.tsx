@@ -32,7 +32,7 @@ const videoData = [
     title: "Lamborghini Huracan",
     thumbnail:
       "https://assets.zyrosite.com/dWxOrW2p4OtD7WKY/shot1-00910-mxB7Wb7OqRtNbpXD.png",
-    video: "https://youtu.be/dCr_STXffWU",
+    video: "https://www.youtube.com/embed/dCr_STXffWU",
     orientation: "landscape",
   },
   {
