@@ -130,7 +130,7 @@ const imageData = [
   {
     id: 8,
     title: "ZARA,
-    thumbnail: "https://assets.zyrosite.com/dWxOrW2p4OtD7WKY/gemini_generated_image_826qwl826qwl826q-A3QlqLLWWEIRrDxo.png",
+    thumbnail: "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=800", 
     orientation: "landscape",
   },
 ];
