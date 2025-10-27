@@ -99,8 +99,8 @@ const imageData = [
   },
   {
     id: 3,
-    title: "Food & Beverage",
-    thumbnail: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
+    title: "Swiggy : Food Delivery",
+    thumbnail: "https://assets.zyrosite.com/dWxOrW2p4OtD7WKY/unnamed-1-dWxLW2EZpyIz8DGV.jpg",
     orientation: "vertical",
   },
   {
