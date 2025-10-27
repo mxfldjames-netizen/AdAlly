@@ -117,8 +117,8 @@ const imageData = [
   },
   {
     id: 6,
-    title: "Fitness Brand",
-    thumbnail: "https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=800",
+    title: "Muscle Nectar",
+    thumbnail: "https://assets.zyrosite.com/dWxOrW2p4OtD7WKY/gemini_generated_image_lii2nilii2nilii2-m6L2W7pG5ehLkVgV.png",
     orientation: "landscape",
   },
   {
