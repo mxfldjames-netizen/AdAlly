@@ -87,8 +87,8 @@ const videoData = [
 const imageData = [
   {
     id: 1,
-    title: "Fashion Brand",
-    thumbnail: "https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=800",
+    title: "Goibibo",
+    thumbnail: "https://assets.zyrosite.com/dWxOrW2p4OtD7WKY/gemini_generated_image_fed7ybfed7ybfed7-Yg24pZ62rnFK94Ej.png",
     orientation: "vertical",
   },
   {
