@@ -93,8 +93,8 @@ const imageData = [
   },
   {
     id: 2,
-    title: "Tech Product",
-    thumbnail: "https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=800",
+    title: "Souled Store`",
+    thumbnail: "https://assets.zyrosite.com/dWxOrW2p4OtD7WKY/gemini_generated_image_t1xfxt1xfxt1xfxt-Aq2Gp5NGNwt1qleW.png",
     orientation: "landscape",
   },
   {
