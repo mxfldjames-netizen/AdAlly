@@ -105,8 +105,8 @@ const imageData = [
   },
   {
     id: 4,
-    title: "Luxury Watch",
-    thumbnail: "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=800",
+    title: "Oven Story Pizza",
+    thumbnail: "https://assets.zyrosite.com/dWxOrW2p4OtD7WKY/gemini_generated_image_r5y9hsr5y9hsr5y9-YyvDpxNX3acP6g0l.png",
     orientation: "landscape",
   },
   {
