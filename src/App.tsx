@@ -93,7 +93,7 @@ const imageData = [
   },
   {
     id: 2,
-    title: "Souled Store`",
+    title: "Souled Store",
     thumbnail: "https://assets.zyrosite.com/dWxOrW2p4OtD7WKY/gemini_generated_image_t1xfxt1xfxt1xfxt-Aq2Gp5NGNwt1qleW.png",
     orientation: "landscape",
   },
