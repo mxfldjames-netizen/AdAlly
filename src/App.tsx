@@ -123,8 +123,8 @@ const imageData = [
   },
   {
     id: 7,
-    title: "Beauty Product",
-    thumbnail: "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=800",
+    title: "First Crush",
+    thumbnail: "https://assets.zyrosite.com/dWxOrW2p4OtD7WKY/gemini_generated_image_bcsmwsbcsmwsbcsm-AQEe7q25JNI2R1zM.png",
     orientation: "vertical",
   },
   {
