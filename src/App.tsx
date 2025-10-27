@@ -47,7 +47,7 @@ const videoData = [
     id: 5,
     title: "Jaguar",
     thumbnail:
-      "https://www.exoticcarhacks.com/wp-content/uploads/2024/02/D-8WJU7I-scaled.jpeg",
+      "https://jlr.scene7.com/is/image/jlr/250308_Jaguar_Type-00_SIDE_ON_DOORS?wid=1280&fit=stretch%2C1",
     video: "https://www.youtube.com/embed/QmhYvijIrZ0",
     orientation: "landscape",
   },
