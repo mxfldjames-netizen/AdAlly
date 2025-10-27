@@ -47,7 +47,7 @@ const videoData = [
     id: 5,
     title: "Jaguar",
     thumbnail:
-      "https://jlr.scene7.com/is/image/jlr/250308_Jaguar_Type-00_SIDE_ON_DOORS?wid=1280&fit=stretch%2C1",
+      "https://assets.zyrosite.com/dWxOrW2p4OtD7WKY/jjj-Yg24pvezZ9hJnQDz.png",
     video: "https://www.youtube.com/embed/QmhYvijIrZ0",
     orientation: "landscape",
   },
