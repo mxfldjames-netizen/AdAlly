@@ -47,7 +47,7 @@ const videoData = [
     id: 5,
     title: "Jaguar",
     thumbnail:
-      "https://i9.ytimg.com/vi_webp/QmhYvijIrZ0/mqdefault.webp?v=68a615bd&sqp=CNTT-ccG&rs=AOn4CLAsIulTAcjOYH4wPgBbkPaFwwsgKQ",
+      "https://www.exoticcarhacks.com/wp-content/uploads/2024/02/D-8WJU7I-scaled.jpeg",
     video: "https://www.youtube.com/embed/QmhYvijIrZ0",
     orientation: "landscape",
   },
