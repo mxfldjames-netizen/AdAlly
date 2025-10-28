@@ -269,7 +269,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBack }) => {
                   <Mail className="w-6 h-6 text-black mt-1" />
                   <div>
                     <h3 className="font-semibold text-black mb-1">Email</h3>
-                    <p className="text-gray-600">hello@movico.studio</p>
+                    <p className="text-gray-600">hello@imagicarts.com</p>
                     <p className="text-sm text-gray-500">We'll respond within 24 hours</p>
                   </div>
                 </div>
@@ -287,7 +287,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBack }) => {
                   <MapPin className="w-6 h-6 text-black mt-1" />
                   <div>
                     <h3 className="font-semibold text-black mb-1">Address</h3>
-                    <p className="text-gray-600">Technopark,Trivandrum,Kerala<br />IND 695582</p>
+                    <p className="text-gray-600">New Delhi<br />IND</p>
                   </div>
                 </div>
               </div>
