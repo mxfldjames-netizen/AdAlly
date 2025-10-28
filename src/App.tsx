@@ -79,7 +79,7 @@ const videoData = [
     title: "Dragon Ball",
     thumbnail:
       "https://assets.zyrosite.com/dWxOrW2p4OtD7WKY/3-min-mePg8PkVPoC3pgze.webp",
-    video: "https://www.youtube.com/embed/fJ9rUzIMcZQ",
+    video: "https://youtube.com/embed/qTyk95uVvOw?feature=share",
     orientation: "vertical",
   },
 ];
