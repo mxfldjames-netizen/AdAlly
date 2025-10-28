@@ -37,14 +37,14 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-black font-semibold text-lg mb-6">Contact</h3>
             <ul className="space-y-4">
-              <li className="text-gray-600"><span className="block text-sm text-gray-500">Email</span>hello@movico.studio</li>
-              <li className="text-gray-600"><span className="block text-sm text-gray-500">Phone</span>+1 (555) 123-4567</li>
-              <li className="text-gray-600"><span className="block text-sm text-gray-500">Address</span>123 Creative District, Los Angeles, CA 90028</li>
+              <li className="text-gray-600"><span className="block text-sm text-gray-500">Email</span>hello@imagicarts.com</li>
+              <li className="text-gray-600"><span className="block text-sm text-gray-500">Phone</span>+91 79076 18219</li>
+              <li className="text-gray-600"><span className="block text-sm text-gray-500">Address</span>New Delhi, India</li>
             </ul>
           </div>
         </div>
         <div className="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-gray-500 text-sm mb-4 md:mb-0">© 2025 Movico Studio. All rights reserved.</div>
+          <div className="text-gray-500 text-sm mb-4 md:mb-0">A IMAGICARTS COMPANY © 2025 Adally. All rights reserved.</div>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-sm">
             <a href="#" className="text-gray-500 hover:text-black transition-colors duration-300">Privacy Policy</a>
             <a href="#" className="text-gray-500 hover:text-black transition-colors duration-300">Terms of Service</a>
