@@ -76,7 +76,7 @@ const videoData = [
   },
   {
     id: 9,
-    title: "Dragon Ball",
+    title: "COMET",
     thumbnail:
       "https://assets.zyrosite.com/dWxOrW2p4OtD7WKY/3-min-mePg8PkVPoC3pgze.webp",
     video: "https://youtube.com/embed/qTyk95uVvOw?feature=share",
