@@ -113,7 +113,7 @@ const imageData = [
     id: 5,
     title: "ThinkPrint",
     thumbnail: "https://assets.zyrosite.com/dWxOrW2p4OtD7WKY/whatsapp-image-2025-10-28-at-18.39.44-A85MJ5W6bzTKbVap.jpeg",
-    orientation: "vertical",
+    orientation: "landscape",
   },
   {
     id: 6,
