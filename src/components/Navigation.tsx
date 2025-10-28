@@ -31,6 +31,7 @@ const Navigation: React.FC<NavigationProps> = ({
   const publicNavItems = [
     { id: "home", label: "Home Page" },
     { id: "portfolio", label: "Portfolio" },
+    { id: "pricing", label: "Pricing" },
     { id: "about", label: "About Us" },
     { id: "contact", label: "Contact Us" },
   ];
@@ -38,6 +39,7 @@ const Navigation: React.FC<NavigationProps> = ({
   const userNavItems = [
     { id: "home", label: "Home Page" },
     { id: "portfolio", label: "Portfolio" },
+    { id: "pricing", label: "Pricing" },
     { id: "dashboard", label: "Dashboard" },
     { id: "about", label: "About Us" },
   ];

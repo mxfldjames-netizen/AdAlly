@@ -9,6 +9,7 @@ import PortfolioPage from "./pages/PortfolioPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import DashboardPage from "./pages/DashboardPage";
+import PricingPage from "./pages/PricingPage";
 
 const videoData = [
   {
@@ -261,6 +262,12 @@ function AppContent() {
       )}
       {activeItem === "contact" && (
         <ContactPage onBack={handleBackToHome} />
+      )}
+      {activeItem === "pricing" && (
+        <PricingPage
+          onBack={handleBackToHome}
+          onContactClick={() => setActiveItem("contact")}
+        />
       )}
       {activeItem === "dashboard" && user && (
         <DashboardPage />
