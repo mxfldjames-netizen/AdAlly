@@ -67,13 +67,13 @@ const AnimatedStatsCard: React.FC<AnimatedStatsCardProps> = ({
       className={`flex flex-col items-center transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="flex items-center gap-2 mb-1">
-        <Icon className="w-4 h-4 text-gray-500" />
-        <span className="text-2xl sm:text-3xl font-bold text-gray-900">
+      <div className="flex items-center gap-2 mb-2">
+        <Icon className="w-6 h-6 text-gray-500" />
+        <span className="text-4xl sm:text-5xl font-bold text-gray-900">
           {count}{hasPlus && '+'}
         </span>
       </div>
-      <div className="text-xs text-gray-500 uppercase tracking-wider">
+      <div className="text-sm sm:text-base text-gray-500 uppercase tracking-wider font-medium">
         {label}
       </div>
     </div>
