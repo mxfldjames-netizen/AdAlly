@@ -90,8 +90,9 @@ const HomePage: React.FC<HomePageProps> = ({
         </div>
 
         {/* Stats Section - Animated Cards with Counters */}
-        <div className="relative grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 px-4 w-full max-w-4xl mx-auto text-30xl"> 
+        <div className="relative grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 px-4 w-full max-w-4xl mx-auto"> 
           <AnimatedStatsCard 
+            <p className="text-4xl font-bold">{number}</p>
             icon={Zap}  
             number="50+" 
             label="ADS CREATED" 
