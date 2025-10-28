@@ -36,7 +36,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSwitchToSignup, onClose }) => {
     <div className="w-full max-w-md mx-auto">
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold text-black mb-2">Welcome Back</h2>
-        <p className="text-gray-600">Sign in to your Movico Studio account</p>
+        <p className="text-gray-600">Sign in to your Adally account</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
