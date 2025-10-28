@@ -90,24 +90,24 @@ const HomePage: React.FC<HomePageProps> = ({
         </div>
 
         {/* Stats Section - Animated Cards with Counters */}
-        <div className="relative grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 px-4 w-full max-w-4xl mx-auto"> 
-          <AnimatedStatsCard  
-            icon={Zap}  
-            number="50+" 
-            label="ADS CREATED" 
-            delay={0} 
+        <div className="relative grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 px-4 w-full max-w-4xl mx-auto mb-16 sm:mb-24">
+          <AnimatedStatsCard
+            icon={Zap}
+            number="50+"
+            label="ADS CREATED"
+            delay={0}
           />
-          <AnimatedStatsCard 
-            icon={Award} 
-            number="10+" 
-            label="HAPPY CLIENTS" 
-            delay={200} 
+          <AnimatedStatsCard
+            icon={Award}
+            number="10+"
+            label="HAPPY CLIENTS"
+            delay={200}
           />
-          <AnimatedStatsCard 
-            icon={Sparkles} 
-            number="100" 
-            label="PRODUCTIVITY" 
-            delay={400} 
+          <AnimatedStatsCard
+            icon={Sparkles}
+            number="100"
+            label="PRODUCTIVITY"
+            delay={400}
           />
         </div>
       </div>
