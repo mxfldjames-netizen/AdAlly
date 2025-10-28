@@ -93,7 +93,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onBack }) => {
             <h2 className="text-2xl sm:text-3xl font-bold text-black">Our Story</h2>
             <div className="space-y-4 text-gray-600 leading-relaxed">
               <p>
-                Founded in 2025 with the launch of Google VEO3, Movico Studio emerged from a simple yet powerful vision: to revolutionize how stories are told in the digital age. We recognized that traditional video production was often expensive, time-consuming, and inaccessible to many creators with brilliant ideas.
+                Founded in 2025 with the launch of Google VEO3, Adally emerged from a simple yet powerful vision: to revolutionize how stories are told in the digital age. We recognized that traditional video production was often expensive, time-consuming, and inaccessible to many creators with brilliant ideas.
               </p>
               <p>
                 By harnessing the power of artificial intelligence, we've created a platform 
@@ -123,7 +123,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onBack }) => {
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-black mb-4">Our Values</h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              The principles that guide everything we do at Movico Studio
+              The principles that guide everything we do at Adally
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -144,7 +144,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onBack }) => {
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-black mb-4">Meet Our Team</h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              The creative minds behind Movico Studio's innovative AI technology
+              The creative minds behind Adally's innovative AI technology
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -197,7 +197,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onBack }) => {
         <div className="text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-black mb-6">Ready to Create Something Amazing?</h2>
           <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
-            Join the hundreds of creators who have transformed their ideas into stunning visual stories with Movico Studio.
+            Join the hundreds of creators who have transformed their ideas into stunning visual stories with Adally.
           </p>
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
