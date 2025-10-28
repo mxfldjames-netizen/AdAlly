@@ -78,7 +78,7 @@ const videoData = [
     id: 9,
     title: "Dragon Ball",
     thumbnail:
-      "https://wallpapercave.com/wp/wp11175180.jpg",
+      "https://assets.zyrosite.com/dWxOrW2p4OtD7WKY/3-min-mePg8PkVPoC3pgze.webp",
     video: "https://www.youtube.com/embed/fJ9rUzIMcZQ",
     orientation: "vertical",
   },
