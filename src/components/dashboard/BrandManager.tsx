@@ -575,7 +575,7 @@ const BrandManager: React.FC = () => {
 
               {/* Ad Ideas */}
               <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Ad Ideas</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Custom Ad Ideas</h3>
                 
                 {/* Add New Ad Idea Form */}
                 <form onSubmit={handleAddAdIdea} className="mb-6 p-4 bg-gray-50 rounded-lg">
