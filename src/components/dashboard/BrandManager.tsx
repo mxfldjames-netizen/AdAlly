@@ -501,7 +501,7 @@ const BrandManager: React.FC = () => {
   return (
     <div className="space-y-6 pt-12">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-black">Brand Management</h1>
+        <h1 className="text-2xl font-bold text-black">Brand Management - FREE TRIAL </h1>
         <button
           onClick={() => setShowCreateForm(true)}
           className="flex items-center gap-2 bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors duration-200"
