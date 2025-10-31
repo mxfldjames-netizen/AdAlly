@@ -65,7 +65,7 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack, onContactClick }) => 
         <div className="text-center mb-16">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-black via-gray-800 to-gray-600 bg-clip-text text-transparent">
-              Choose Your Plan
+              Limited Time Early Bird Deals!
             </span>
           </h1>
           <p className="text-gray-600 text-lg sm:text-xl max-w-2xl mx-auto">
