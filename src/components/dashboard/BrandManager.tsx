@@ -1030,4 +1030,4 @@ const BrandManager: React.FC = () => {
   );
 };
 
-export default BrandManager;
+export default BrandManager; 
