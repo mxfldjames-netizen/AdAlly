@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Download, Eye, Trash2, Calendar, FileText, Image, Video, Package } from 'lucide-react';
+import { Download, Eye, Trash2, Calendar, FileText, Image, Video, Package, Upload, AlertCircle } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 import { useAuth } from '../../contexts/AuthContext';
+import { v4 as uuidv4 } from 'uuid';
 
 interface DownloadItem {
   id: string;
@@ -20,18 +21,47 @@ interface DownloadItem {
   };
 }
 
+interface UserWithSubscription {
+  id: string;
+  email: string;
+  full_name: string | null;
+  subscription_tier: string;
+}
+
 const Downloads: React.FC = () => {
   const { user } = useAuth();
   const [downloads, setDownloads] = useState<DownloadItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedFile, setSelectedFile] = useState<DownloadItem | null>(null);
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [showAdminPanel, setShowAdminPanel] = useState(false);
+  const [users, setUsers] = useState<UserWithSubscription[]>([]);
+  const [selectedUser, setSelectedUser] = useState<UserWithSubscription | null>(null);
+  const [selectedAdIdea, setSelectedAdIdea] = useState<any>(null);
+  const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
     if (user) {
+      checkAdminStatus();
       fetchDownloads();
     }
   }, [user]);
+
+  const checkAdminStatus = async () => {
+    if (!user) return;
+    try {
+      const { data } = await supabase
+        .from('user_subscriptions')
+        .select('tier')
+        .eq('user_id', user.id)
+        .maybeSingle();
+
+      setIsAdmin(data?.tier === 'admin' || user.email?.includes('admin'));
+    } catch (error) {
+      console.error('Error checking admin status:', error);
+    }
+  };
 
   const fetchDownloads = async () => {
     try {
@@ -119,6 +149,125 @@ const Downloads: React.FC = () => {
     return 'bg-gray-100 text-gray-800';
   };
 
+  const fetchUsers = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('profiles')
+        .select(`
+          id,
+          email,
+          full_name,
+          user_subscriptions(tier)
+        `)
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+
+      const usersWithSubscription = data?.map((profile: any) => ({
+        id: profile.id,
+        email: profile.email,
+        full_name: profile.full_name,
+        subscription_tier: profile.user_subscriptions?.[0]?.tier || 'free',
+      })) || [];
+
+      setUsers(usersWithSubscription);
+    } catch (error) {
+      console.error('Error fetching users:', error);
+    }
+  };
+
+  const fetchUserAdIdeas = async (userId: string) => {
+    try {
+      const { data, error } = await supabase
+        .from('ad_ideas')
+        .select(`
+          *,
+          trial_requests(id, status)
+        `)
+        .in('brand_id', (
+          await supabase
+            .from('brands')
+            .select('id')
+            .eq('user_id', userId)
+        ).data?.map((b: any) => b.id) || [])
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+
+      if (data && data.length > 0) {
+        const pendingTrials = data.filter(
+          idea => idea.trial_requests?.[0]?.status === 'pending'
+        );
+        if (pendingTrials.length > 0) {
+          setSelectedAdIdea(pendingTrials[0]);
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching ad ideas:', error);
+    }
+  };
+
+  const handleAdminUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files || !e.target.files[0] || !selectedAdIdea || !selectedUser) return;
+
+    const file = e.target.files[0];
+    setUploading(true);
+
+    try {
+      const fileExt = file.name.split('.').pop();
+      const fileName = `trial-${uuidv4()}.${fileExt}`;
+      const filePath = `trial-videos/${fileName}`;
+
+      // Upload file
+      const { error: uploadError } = await supabase.storage
+        .from('brand-assets')
+        .upload(filePath, file);
+
+      if (uploadError) throw uploadError;
+
+      // Get public URL
+      const { data: { publicUrl } } = supabase.storage
+        .from('brand-assets')
+        .getPublicUrl(filePath);
+
+      // Create download record
+      const { data: downloadData, error: downloadError } = await supabase
+        .from('downloads')
+        .insert({
+          ad_idea_id: selectedAdIdea.id,
+          file_name: file.name,
+          file_url: publicUrl,
+          file_type: file.type,
+          file_size: file.size,
+        })
+        .select()
+        .single();
+
+      if (downloadError) throw downloadError;
+
+      // Update trial request status to 'ready'
+      if (selectedAdIdea.trial_requests?.[0]?.id) {
+        const { error: updateError } = await supabase
+          .from('trial_requests')
+          .update({ status: 'ready' })
+          .eq('id', selectedAdIdea.trial_requests[0].id);
+
+        if (updateError) throw updateError;
+      }
+
+      // Refresh downloads
+      fetchDownloads();
+      setSelectedUser(null);
+      setSelectedAdIdea(null);
+      alert('Video uploaded successfully! User will see "Video is ready in Downloads Tab" message.');
+    } catch (error) {
+      console.error('Error uploading trial video:', error);
+      alert('Error uploading video. Please try again.');
+    } finally {
+      setUploading(false);
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
@@ -131,10 +280,115 @@ const Downloads: React.FC = () => {
     <div className="space-y-6 pt-4">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-black">Downloads</h1>
-        <div className="text-sm text-gray-500">
-          {downloads.length} file{downloads.length !== 1 ? 's' : ''} available
+        <div className="flex items-center gap-4">
+          <div className="text-sm text-gray-500">
+            {downloads.length} file{downloads.length !== 1 ? 's' : ''} available
+          </div>
+          {isAdmin && (
+            <button
+              onClick={() => {
+                setShowAdminPanel(!showAdminPanel);
+                if (!showAdminPanel) {
+                  fetchUsers();
+                }
+              }}
+              className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors duration-200 text-sm font-medium"
+            >
+              {showAdminPanel ? 'Close Admin' : 'Admin Panel'}
+            </button>
+          )}
         </div>
       </div>
+
+      {isAdmin && showAdminPanel && (
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">Deliver Free Trial Videos</h2>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* User Selection */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-3">Select User</label>
+              <div className="space-y-2 max-h-96 overflow-y-auto border border-gray-200 rounded-lg p-3">
+                {users.map((u) => (
+                  <button
+                    key={u.id}
+                    onClick={() => {
+                      setSelectedUser(u);
+                      setSelectedAdIdea(null);
+                      fetchUserAdIdeas(u.id);
+                    }}
+                    className={`w-full text-left p-3 rounded-lg transition-colors duration-200 ${
+                      selectedUser?.id === u.id
+                        ? 'bg-black text-white'
+                        : 'bg-gray-50 text-gray-900 hover:bg-gray-100'
+                    }`}
+                  >
+                    <div className="font-medium">{u.full_name || u.email}</div>
+                    <div className={`text-sm ${selectedUser?.id === u.id ? 'text-gray-200' : 'text-gray-500'}`}>
+                      {u.email}
+                    </div>
+                    <div className={`text-xs mt-1 inline-block px-2 py-0.5 rounded ${
+                      u.subscription_tier === 'free'
+                        ? 'bg-gray-200 text-gray-800'
+                        : 'bg-blue-100 text-blue-800'
+                    }`}>
+                      {u.subscription_tier}
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Ad Idea & Upload */}
+            <div>
+              {selectedUser ? (
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Pending Trial Video for: {selectedUser.full_name || selectedUser.email}
+                    </label>
+                    {selectedAdIdea ? (
+                      <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 mb-4">
+                        <p className="font-medium text-gray-900">{selectedAdIdea.title}</p>
+                        <p className="text-sm text-gray-600 mt-1">{selectedAdIdea.description}</p>
+                      </div>
+                    ) : (
+                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4 flex items-start gap-2">
+                        <AlertCircle className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <p className="text-sm text-blue-700">No pending trial requests for this user</p>
+                      </div>
+                    )}
+                  </div>
+
+                  {selectedAdIdea && (
+                    <label className="flex items-center justify-center gap-2 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-dashed border-green-300 rounded-lg p-6 hover:border-green-400 transition-colors duration-200 cursor-pointer">
+                      <Upload className="w-5 h-5 text-green-600" />
+                      <div className="text-center">
+                        <p className="font-medium text-gray-900">
+                          {uploading ? 'Uploading...' : 'Upload Trial Video'}
+                        </p>
+                        <p className="text-sm text-gray-500 mt-1">MP4, WebM, or other video formats</p>
+                      </div>
+                      <input
+                        type="file"
+                        onChange={handleAdminUpload}
+                        disabled={uploading}
+                        className="hidden"
+                        accept="video/*"
+                      />
+                    </label>
+                  )}
+                </div>
+              ) : (
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 text-center">
+                  <AlertCircle className="w-8 h-8 text-gray-400 mx-auto mb-2" />
+                  <p className="text-gray-600">Select a user to see their pending trial videos</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {downloads.length === 0 ? (
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-12 text-center">

@@ -57,6 +57,7 @@ const BrandManager: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [subscription, setSubscription] = useState<Subscription | null>(null);
   const [trialRequests, setTrialRequests] = useState<Record<string, TrialRequest>>({});
+  const [realtimeSubscription, setRealtimeSubscription] = useState<any>(null);
 
   // Form states
   const [formData, setFormData] = useState({
@@ -91,8 +92,46 @@ const BrandManager: React.FC = () => {
     if (selectedBrand) {
       fetchBrandAssets(selectedBrand.id);
       fetchAdIdeas(selectedBrand.id);
+      setupRealtimeUpdates();
     }
+
+    return () => {
+      if (realtimeSubscription) {
+        supabase.removeChannel(realtimeSubscription);
+      }
+    };
   }, [selectedBrand]);
+
+  const setupRealtimeUpdates = () => {
+    if (!selectedBrand) return;
+
+    const channel = supabase
+      .channel(`trial_requests_${selectedBrand.id}`)
+      .on(
+        'postgres_changes',
+        {
+          event: 'UPDATE',
+          schema: 'public',
+          table: 'trial_requests',
+        },
+        (payload) => {
+          const updatedTrialRequest = payload.new as TrialRequest;
+          setTrialRequests(prev => ({
+            ...prev,
+            ...Object.fromEntries(
+              Object.entries(prev).map(([ideaId, trial]) =>
+                trial.id === updatedTrialRequest.id
+                  ? [ideaId, updatedTrialRequest]
+                  : [ideaId, trial]
+              )
+            )
+          }));
+        }
+      )
+      .subscribe();
+
+    setRealtimeSubscription(channel);
+  };
 
   const fetchSubscription = async () => {
     if (!user) return;
