@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Plus, Upload, Trash2, CreditCard as Edit, Save, X, Package, Image, FileText, Video } from 'lucide-react';
+import { Plus, Upload, Trash2, CreditCard as Edit, Save, X, Package, Image, FileText, Video, Star, Check, Clock } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 import { useAuth } from '../../contexts/AuthContext';
 import { v4 as uuidv4 } from 'uuid';
@@ -32,6 +32,18 @@ interface AdIdea {
   target_audience: string | null;
   campaign_type: string | null;
   status: string;
+  trial_request_id: string | null;
+}
+
+interface TrialRequest {
+  id: string;
+  status: 'pending' | 'ready' | 'delivered';
+  requested_at: string;
+  ready_at: string | null;
+}
+
+interface Subscription {
+  tier: 'free' | 'basic' | 'creator' | 'viral';
 }
 
 const BrandManager: React.FC = () => {
@@ -43,6 +55,8 @@ const BrandManager: React.FC = () => {
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [editingBrand, setEditingBrand] = useState<Brand | null>(null);
   const [loading, setLoading] = useState(true);
+  const [subscription, setSubscription] = useState<Subscription | null>(null);
+  const [trialRequests, setTrialRequests] = useState<Record<string, TrialRequest>>({});
 
   // Form states
   const [formData, setFormData] = useState({
@@ -69,6 +83,7 @@ const BrandManager: React.FC = () => {
   useEffect(() => {
     if (user) {
       fetchBrands();
+      fetchSubscription();
     }
   }, [user]);
 
@@ -78,6 +93,22 @@ const BrandManager: React.FC = () => {
       fetchAdIdeas(selectedBrand.id);
     }
   }, [selectedBrand]);
+
+  const fetchSubscription = async () => {
+    if (!user) return;
+    try {
+      const { data, error } = await supabase
+        .from('user_subscriptions')
+        .select('tier')
+        .eq('user_id', user.id)
+        .maybeSingle();
+
+      if (error) throw error;
+      if (data) setSubscription(data as Subscription);
+    } catch (error) {
+      console.error('Error fetching subscription:', error);
+    }
+  };
 
   const fetchBrands = async () => {
     try {
@@ -121,8 +152,68 @@ const BrandManager: React.FC = () => {
 
       if (error) throw error;
       setAdIdeas(data || []);
+
+      if (data) {
+        for (const idea of data) {
+          if (idea.trial_request_id) {
+            const { data: trialData } = await supabase
+              .from('trial_requests')
+              .select('*')
+              .eq('id', idea.trial_request_id)
+              .maybeSingle();
+
+            if (trialData) {
+              setTrialRequests(prev => ({
+                ...prev,
+                [idea.id]: trialData as TrialRequest
+              }));
+            }
+          }
+        }
+      }
     } catch (error) {
       console.error('Error fetching ad ideas:', error);
+    }
+  };
+
+  const handleRequestTrialVideo = async (brandId: string) => {
+    if (!user) return;
+
+    try {
+      const { data, error } = await supabase
+        .from('trial_requests')
+        .insert({
+          user_id: user.id,
+          brand_id: brandId,
+          status: 'pending',
+          ready_at: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+        })
+        .select()
+        .single();
+
+      if (error) throw error;
+
+      const { data: adIdea, error: adError } = await supabase
+        .from('ad_ideas')
+        .insert({
+          brand_id: brandId,
+          title: 'Free Trial Video',
+          description: 'Free trial video request',
+          status: 'new',
+          trial_request_id: data.id,
+        })
+        .select()
+        .single();
+
+      if (adError) throw adError;
+
+      setAdIdeas([adIdea, ...adIdeas]);
+      setTrialRequests(prev => ({
+        ...prev,
+        [adIdea.id]: data as TrialRequest
+      }));
+    } catch (error) {
+      console.error('Error requesting trial video:', error);
     }
   };
 
@@ -458,10 +549,10 @@ const BrandManager: React.FC = () => {
             <div className="space-y-6">
               {/* Brand Info */}
               <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                <div className="flex items-center gap-4 mb-4">
+                <div className="flex items-center gap-4 mb-6">
                   {selectedBrand.logo_url ? (
-                    <img 
-                      src={selectedBrand.logo_url} 
+                    <img
+                      src={selectedBrand.logo_url}
                       alt={`${selectedBrand.name} logo`}
                       className="w-16 h-16 rounded-lg object-cover border border-gray-200"
                     />
@@ -470,12 +561,23 @@ const BrandManager: React.FC = () => {
                       <Package className="w-8 h-8 text-gray-400" />
                     </div>
                   )}
-                  <div>
+                  <div className="flex-1">
                     <h2 className="text-xl font-semibold text-gray-900">{selectedBrand.name}</h2>
                     {selectedBrand.industry && (
                       <p className="text-gray-500">{selectedBrand.industry}</p>
                     )}
                   </div>
+                  {subscription?.tier === 'free' && (
+                    !adIdeas.some(idea => idea.trial_request_id) ? (
+                      <button
+                        onClick={() => handleRequestTrialVideo(selectedBrand.id)}
+                        className="flex items-center gap-2 bg-gradient-to-r from-amber-400 to-orange-400 text-black px-4 py-2 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+                      >
+                        <Star className="w-4 h-4" />
+                        Request Free Trial
+                      </button>
+                    ) : null
+                  )}
                 </div>
                 {selectedBrand.description && (
                   <p className="text-gray-600 mb-4">{selectedBrand.description}</p>
@@ -624,35 +726,69 @@ const BrandManager: React.FC = () => {
 
                 {/* Ad Ideas List */}
                 <div className="space-y-3">
-                  {adIdeas.map((idea) => (
-                    <div key={idea.id} className="border border-gray-200 rounded-lg p-4">
-                      <div className="flex items-start justify-between">
-                        <div className="flex-1">
-                          <h4 className="font-medium text-gray-900">{idea.title}</h4>
-                          <p className="text-gray-600 mt-1">{idea.description}</p>
-                          <div className="flex items-center gap-4 mt-2 text-sm text-gray-500">
-                            {idea.campaign_type && (
-                              <span className="bg-gray-100 px-2 py-1 rounded">{idea.campaign_type}</span>
+                  {adIdeas.map((idea) => {
+                    const trial = trialRequests[idea.id];
+                    const isTrialPending = trial?.status === 'pending';
+                    const isTrialReady = trial?.status === 'ready';
+                    const isTrialDelivered = trial?.status === 'delivered';
+
+                    return (
+                      <div key={idea.id} className={`border rounded-lg p-4 ${isTrialPending || isTrialReady || isTrialDelivered ? 'border-amber-200 bg-amber-50' : 'border-gray-200'}`}>
+                        <div className="flex items-start justify-between">
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2">
+                              <h4 className="font-medium text-gray-900">{idea.title}</h4>
+                              {trial && <Star className="w-4 h-4 text-amber-500 fill-amber-500" />}
+                            </div>
+                            <p className="text-gray-600 mt-1">{idea.description}</p>
+
+                            {trial && (
+                              <div className="mt-3 p-2 bg-white rounded border border-amber-100">
+                                {isTrialPending && (
+                                  <div className="flex items-center gap-2 text-sm text-amber-700">
+                                    <Clock className="w-4 h-4" />
+                                    <span>Free Trial Video will be ready in 7 Days. For faster generations Purchase a Paid Plan</span>
+                                  </div>
+                                )}
+                                {isTrialReady && (
+                                  <div className="flex items-center gap-2 text-sm text-green-700">
+                                    <Check className="w-4 h-4" />
+                                    <span>Video is ready in Downloads Tab</span>
+                                  </div>
+                                )}
+                                {isTrialDelivered && (
+                                  <div className="flex items-center gap-2 text-sm text-green-700">
+                                    <Check className="w-4 h-4" />
+                                    <span>Video has been delivered</span>
+                                  </div>
+                                )}
+                              </div>
                             )}
-                            {idea.target_audience && (
-                              <span>Target: {idea.target_audience}</span>
-                            )}
-                            <span className={`px-2 py-1 rounded text-xs font-medium ${
-                              idea.status === 'new' ? 'bg-blue-100 text-blue-800' :
-                              idea.status === 'in_progress' ? 'bg-yellow-100 text-yellow-800' :
-                              idea.status === 'completed' ? 'bg-green-100 text-green-800' :
-                              'bg-gray-100 text-gray-800'
-                            }`}>
-                              {idea.status === 'new' ? 'New' :
-                               idea.status === 'in_progress' ? 'In Progress' :
-                               idea.status === 'completed' ? 'Completed' :
-                               idea.status}
-                            </span>
+
+                            <div className="flex items-center gap-4 mt-2 text-sm text-gray-500">
+                              {idea.campaign_type && !trial && (
+                                <span className="bg-gray-100 px-2 py-1 rounded">{idea.campaign_type}</span>
+                              )}
+                              {idea.target_audience && !trial && (
+                                <span>Target: {idea.target_audience}</span>
+                              )}
+                              <span className={`px-2 py-1 rounded text-xs font-medium ${
+                                idea.status === 'new' ? 'bg-blue-100 text-blue-800' :
+                                idea.status === 'in_progress' ? 'bg-yellow-100 text-yellow-800' :
+                                idea.status === 'completed' ? 'bg-green-100 text-green-800' :
+                                'bg-gray-100 text-gray-800'
+                              }`}>
+                                {idea.status === 'new' ? 'New' :
+                                 idea.status === 'in_progress' ? 'In Progress' :
+                                 idea.status === 'completed' ? 'Completed' :
+                                 idea.status}
+                              </span>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             </div>

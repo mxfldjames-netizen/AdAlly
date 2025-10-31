@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { LogOut, User, Package, MessageCircle, Download, Menu, X } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { LogOut, User, Package, MessageCircle, Download, Menu, X, Crown, Settings } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
+import { supabase } from '../../lib/supabase';
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -8,16 +9,69 @@ interface DashboardLayoutProps {
   onTabChange: (tab: string) => void;
 }
 
+interface Subscription {
+  tier: 'free' | 'basic' | 'creator' | 'viral';
+  status: string;
+}
+
 const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children, activeTab, onTabChange }) => {
   const { user, signOut } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [subscription, setSubscription] = useState<Subscription | null>(null);
+  const [isAdmin, setIsAdmin] = useState(false);
 
-  const tabs = [
+  const baseTabs = [
     { id: 'brands', label: 'My Brands', icon: Package },
     { id: 'chat', label: 'Chat with Agent', icon: MessageCircle },
     { id: 'downloads', label: 'Downloads', icon: Download },
     { id: 'profile', label: 'Profile', icon: User },
   ];
+
+  const tabs = isAdmin ? [...baseTabs, { id: 'admin', label: 'Admin Panel', icon: Settings }] : baseTabs;
+
+  useEffect(() => {
+    if (user) {
+      fetchSubscription();
+      checkAdminStatus();
+    }
+  }, [user]);
+
+  const fetchSubscription = async () => {
+    if (!user) return;
+
+    try {
+      const { data, error } = await supabase
+        .from('user_subscriptions')
+        .select('tier, status')
+        .eq('user_id', user.id)
+        .maybeSingle();
+
+      if (error) throw error;
+      if (data) {
+        setSubscription(data as Subscription);
+      }
+    } catch (error) {
+      console.error('Error fetching subscription:', error);
+    }
+  };
+
+  const checkAdminStatus = () => {
+    if (!user?.email) return;
+    setIsAdmin(user.email.includes('admin'));
+  };
+
+  const getTierBadgeColor = (tier: string) => {
+    switch (tier) {
+      case 'basic':
+        return 'bg-blue-100 text-blue-800';
+      case 'creator':
+        return 'bg-purple-100 text-purple-800';
+      case 'viral':
+        return 'bg-red-100 text-red-800';
+      default:
+        return 'bg-gray-100 text-gray-800';
+    }
+  };
 
   const handleSignOut = async () => {
     await signOut();
@@ -41,15 +95,21 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children, activeTab, 
           {/* Header */}
           <div className="p-6 border-b border-gray-200">
             <img src="/logo.png" alt="Movico Studio" className="h-8 w-auto mb-4" />
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
                 <User className="w-5 h-5 text-gray-600" />
               </div>
-              <div>
+              <div className="flex-1">
                 <p className="font-medium text-gray-900">{user?.user_metadata?.full_name || 'User'}</p>
                 <p className="text-sm text-gray-500">{user?.email}</p>
               </div>
             </div>
+            {subscription && (
+              <div className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm font-medium ${getTierBadgeColor(subscription.tier)}`}>
+                {subscription.tier !== 'free' && <Crown className="w-4 h-4" />}
+                <span className="capitalize">{subscription.tier}</span>
+              </div>
+            )}
           </div>
 
           {/* Navigation */}
