@@ -1,8 +1,8 @@
 /*
-  # Initial Database Schema for Movico Studio
+  # Initial Database Schema for Adally
 
   ## Overview
-  This migration creates the complete database schema for the Movico Studio application,
+  This migration creates the complete database schema for the Adally application,
   an AI-powered ad generation platform where users can manage brands, create ad ideas,
   chat with AI agents, and download generated content.
 
