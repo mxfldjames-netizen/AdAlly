@@ -77,7 +77,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onBack }) => {
         <div className="text-center mb-16 sm:mb-20">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-black via-gray-800 to-gray-600 bg-clip-text text-transparent">
-              About Movico Studio
+              About Adally
             </span>
           </h1>
           <p className="text-gray-600 text-base sm:text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto">
