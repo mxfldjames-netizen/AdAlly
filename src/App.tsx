@@ -83,6 +83,14 @@ const videoData = [
     video: "https://youtube.com/embed/qTyk95uVvOw?feature=share",
     orientation: "vertical",
   },
+   {
+    id: 10,
+    title: "Hotwheels",
+    thumbnail:
+      "https://shop.mattel.com.au/cdn/shop/files/Poster_Thumbnail.png?v=1710824118&width=1100",
+    video: "http://youtube.com/embed/watch?v=C90KWPgs6Xs",
+    orientation: "vertical",
+  },
 ];
 
 const imageData = [
