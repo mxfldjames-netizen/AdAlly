@@ -56,7 +56,7 @@ const Navigation: React.FC<NavigationProps> = ({
           <div className="flex items-center">
             <img
               src="/logo.png"
-              alt="Movico Studio"
+              alt="Adally"
               className="h-8 sm:h-10 lg:h-12 w-auto transition-all duration-300 hover:scale-105"
             />
           </div>
