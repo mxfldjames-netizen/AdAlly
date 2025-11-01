@@ -58,11 +58,9 @@ const HomePage: React.FC<HomePageProps> = ({
           {/* Right Side - Honeycomb Feature Grid */}
           <div className="md:col-span-2 flex items-start justify-center pt-4 md:pt-0">
             {/* Wrapper for controlled circle positioning */}
-            {/* CHANGED: Increased height to h-[360px] to fit bigger circles in new pattern */}
             <div className="relative h-[360px] w-full max-w-sm">
 
               {/* Feature Circle 1 - Large (Top Left) */}
-              {/* CHANGED: Back to larger size, new position */}
               <div
                 className="absolute top-0 left-4 w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br from-black to-gray-800 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group rotate-3"
               >
@@ -72,7 +70,6 @@ const HomePage: React.FC<HomePageProps> = ({
               </div>
 
               {/* Feature Circle 2 - Medium (Top Right) */}
-              {/* CHANGED: Back to larger size, new position */}
               <div
                 className="absolute top-4 right-4 w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-gray-700 to-gray-900 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group -rotate-6"
               >
@@ -82,7 +79,6 @@ const HomePage: React.FC<HomePageProps> = ({
               </div>
 
               {/* Feature Circle 3 - Medium (Mid-Left) */}
-              {/* CHANGED: Back to larger size, new position */}
               <div
                 className="absolute top-32 left-12 w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-gray-800 to-black rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group rotate-2"
               >
@@ -92,7 +88,6 @@ const HomePage: React.FC<HomePageProps> = ({
               </div>
 
               {/* Feature Circle 4 - Small (Mid-Right) */}
-              {/* CHANGED: Back to larger size, new position */}
               <div
                 className="absolute top-40 right-12 w-18 h-18 sm:w-20 sm:h-20 bg-gradient-to-br from-black to-gray-700 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group rotate-6"
               >
@@ -102,7 +97,6 @@ const HomePage: React.FC<HomePageProps> = ({
               </div>
 
               {/* Feature Circle 5 - Small (Bottom Left) */}
-              {/* CHANGED: Back to larger size, new position */}
               <div
                 className="absolute bottom-4 left-8 w-18 h-18 sm:w-20 sm:h-20 bg-gradient-to-br from-gray-900 to-gray-700 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group -rotate-3"
               >
@@ -112,7 +106,6 @@ const HomePage: React.FC<HomePageProps> = ({
               </div>
 
               {/* Feature Circle 6 - Extra Small (Bottom Right) */}
-              {/* CHANGED: Back to larger size, new position */}
               <div
                 className="absolute bottom-0 right-16 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-gray-800 to-black rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group rotate-4"
               >
@@ -122,7 +115,6 @@ const HomePage: React.FC<HomePageProps> = ({
               </div>
 
               {/* Connecting Lines Effect */}
-              {/* CHANGED: Updated SVG lines to create the new "Z" path */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-15" xmlns="http://www.w3.org/2000/svg">
                 {/* C1 (Top-L) to C2 (Top-R) */}
                 <line x1="15%" y1="15%" x2="85%" y2="12%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
@@ -139,25 +131,22 @@ const HomePage: React.FC<HomePageProps> = ({
           </div>
         </div>
 
-        {/* ... (Rest of the page remains the same) ... */}
+        {/* ... (Video Ads Carousel, Static Ads Carousel remain the same) ... */}
+         <div className="w-full max-w-5xl mx-auto mb-8">
+           <div className="text-center mb-6">
+             <h2 className="text-xl sm:text-2xl font-bold text-black mb-2">Video Ads</h2>
+             <p className="text-gray-600 text-sm sm:text-base">AI-generated video advertisements</p>
+           </div>
+           <VideoCarousel videoData={videoData} onVideoPlay={onVideoPlay} />
+         </div>
 
-        {/* Video Ads Carousel */}
-        <div className="w-full max-w-5xl mx-auto mb-8">
-          <div className="text-center mb-6">
-            <h2 className="text-xl sm:text-2xl font-bold text-black mb-2">Video Ads</h2>
-            <p className="text-gray-600 text-sm sm:text-base">AI-generated video advertisements</p>
-          </div>
-          <VideoCarousel videoData={videoData} onVideoPlay={onVideoPlay} />
-        </div>
-
-        {/* Static Ads Carousel */}
-        <div className="w-full max-w-5xl mb-16">
-          <div className="text-center mb-6">
-            <h2 className="text-xl sm:text-2xl font-bold text-black mb-2">Static Ads</h2>
-            <p className="text-gray-600 text-sm sm:text-base">AI-generated static advertisements</p>
-          </div>
-          <ImageCarousel imageData={imageData} onImageView={onImageView} />
-        </div>
+         <div className="w-full max-w-5xl mb-16">
+           <div className="text-center mb-6">
+             <h2 className="text-xl sm:text-2xl font-bold text-black mb-2">Static Ads</h2>
+             <p className="text-gray-600 text-sm sm:text-base">AI-generated static advertisements</p>
+           </div>
+           <ImageCarousel imageData={imageData} onImageView={onImageView} />
+         </div>
 
         {/* Stats Section - Animated Cards with Counters */}
         <div className="relative grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 px-4 w-full max-w-4xl mx-auto mb-16 sm:mb-24">
@@ -173,12 +162,13 @@ const HomePage: React.FC<HomePageProps> = ({
             label="HAPPY CLIENTS"
             delay={200}
           />
+          {/* CHANGED: Fixed the closing tag from } to /> */}
           <AnimatedStatsCard
             icon={Sparkles}
             number="100"
             label="PRODUCTIVITY"
             delay={400}
-          }
+          />
         </div>
 
       </div>
