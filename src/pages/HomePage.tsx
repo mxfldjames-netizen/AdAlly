@@ -58,83 +58,81 @@ const HomePage: React.FC<HomePageProps> = ({
           {/* Right Side - Honeycomb Feature Grid */}
           <div className="md:col-span-2 flex items-start justify-center pt-4 md:pt-0">
             {/* Wrapper for controlled circle positioning */}
-            <div className="relative h-[360px] w-full max-w-sm">
+            {/* CHANGED: Set height to 280px to fit 2 rows */}
+            <div className="relative h-[280px] w-full max-w-sm">
 
-              {/* Feature Circle 1 (Top-Left) */}
-              {/* CHANGED: Position */}
+              {/* === TOP ROW === */}
+              
+              {/* Feature Circle 1 (Top Left) */}
               <div
-                className="absolute top-4 left-0 w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br from-black to-gray-800 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group rotate-3"
+                className="absolute top-0 left-0 w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br from-black to-gray-800 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group rotate-3"
               >
                 <div className="text-xl sm:text-2xl font-bold group-hover:scale-110 transition-transform duration-300">1/20th</div>
                 <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Cost</div>
                 <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
               </div>
 
-              {/* Feature Circle 2 (Mid-Bottom-Left) */}
-              {/* CHANGED: Position */}
+              {/* Feature Circle 2 (Top Middle) */}
               <div
-                className="absolute top-32 left-16 w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-gray-700 to-gray-900 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group -rotate-6"
+                className="absolute top-2 left-1/2 transform -translate-x-1/2 w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-gray-700 to-gray-900 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group -rotate-6"
               >
                 <div className="text-lg sm:text-xl font-bold group-hover:scale-110 transition-transform duration-300">1/10th</div>
                 <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Time</div>
                 <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
               </div>
 
-              {/* Feature Circle 3 (Mid-Top-Center) */}
-              {/* CHANGED: Position */}
+              {/* Feature Circle 3 (Top Right) */}
               <div
-                className="absolute top-12 left-1/2 transform -translate-x-1/2 w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-gray-800 to-black rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group rotate-2"
+                className="absolute top-0 right-0 w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-gray-800 to-black rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group rotate-2"
               >
                 <div className="text-lg sm:text-xl font-bold group-hover:scale-110 transition-transform duration-300">5X</div>
                 <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Engagement</div>
                 <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
               </div>
 
-              {/* Feature Circle 4 (Mid-Bottom-Right) */}
-              {/* CHANGED: Position */}
+              {/* === BOTTOM ROW === */}
+
+              {/* Feature Circle 4 (Bottom Left) */}
               <div
-                className="absolute top-40 right-16 w-18 h-18 sm:w-20 sm:h-20 bg-gradient-to-br from-black to-gray-700 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group rotate-6"
+                className="absolute bottom-0 left-4 w-18 h-18 sm:w-20 sm:h-20 bg-gradient-to-br from-black to-gray-700 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group rotate-6"
               >
                 <div className="text-sm sm:text-base font-bold text-center px-1 group-hover:scale-110 transition-transform duration-300">Mass</div>
                 <div className="text-[9px] sm:text-[10px] text-center px-1 group-hover:scale-110 transition-transform duration-300">Prod</div>
                 <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
               </div>
 
-              {/* Feature Circle 5 (Top-Right) */}
-              {/* CHANGED: Position */}
+              {/* Feature Circle 5 (Bottom Middle) */}
               <div
-                className="absolute top-16 right-0 w-18 h-18 sm:w-20 sm:h-20 bg-gradient-to-br from-gray-900 to-gray-700 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group -rotate-3"
+                className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-18 h-18 sm:w-20 sm:h-20 bg-gradient-to-br from-gray-900 to-gray-700 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group -rotate-3"
               >
                 <div className="text-sm sm:text-base font-bold text-center px-1 group-hover:scale-110 transition-transform duration-300">Multi</div>
                 <div className="text-[9px] sm:text-[10px] text-center px-1 group-hover:scale-110 transition-transform duration-300">Lang</div>
                 <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
               </div>
 
-              {/* Feature Circle 6 (Bottom-Center) */}
-              {/* CHANGED: Position */}
+              {/* Feature Circle 6 (Bottom Right) */}
               <div
-                className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-gray-800 to-black rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group rotate-4"
+                className="absolute bottom-0 right-4 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-gray-800 to-black rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group rotate-4"
               >
                 <div className="text-base sm:text-lg font-bold text-center group-hover:scale-110 transition-transform duration-300">∞</div>
                 <div className="text-[9px] sm:text-[10px] text-center group-hover:scale-110 transition-transform duration-300">Vary</div>
                 <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
               </div>
 
+
               {/* Connecting Lines Effect */}
-              {/* CHANGED: Updated SVG lines to create the new horizontal "Z" path */}
+              {/* CHANGED: New SVG path for the 2x3 grid zig-zag */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-15" xmlns="http://www.w3.org/2000/svg">
-                {/* C1 (Top-L) to C2 (Mid-Bot-L) */}
-                <line x1="15%" y1="15%" x2="30%" y2="50%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
-                {/* C2 (Mid-Bot-L) to C3 (Mid-Top-C) */}
-                <line x1="30%" y1="50%" x2="50%" y2="25%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
-                {/* C3 (Mid-Top-C) to C4 (Mid-Bot-R) */}
-                <line x1="50%" y1="25%" x2="70%" y2="60%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
-                {/* C4 (Mid-Bot-R) to C5 (Top-R) */}
-                <line x1="70%" y1="60%" x2="95%" y2="30%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
-                {/* (Bonus) C5 (Top-R) to C6 (Bot-C) */}
-                <line x1="95%" y1="30%" x2="50%" y2="90%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
-                {/* (Bonus) C1 (Top-L) to C6 (Bot-C) */}
-                <line x1="15%" y1="15%" x2="50%" y2="90%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
+                {/* C1 (Top-L) to C4 (Bot-L) */}
+                <line x1="15%" y1="20%" x2="18%" y2="85%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
+                {/* C4 (Bot-L) to C2 (Top-M) */}
+                <line x1="18%" y1="85%" x2="50%" y2="22%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
+                {/* C2 (Top-M) to C5 (Bot-M) */}
+                <line x1="50%" y1="22%" x2="50%" y2="83%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
+                {/* C5 (Bot-M) to C3 (Top-R) */}
+                <line x1="50%" y1="83%" x2="85%" y2="20%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
+                {/* C3 (Top-R) to C6 (Bot-R) */}
+                <line x1="85%" y1="20%" x2="82%" y2="85%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
               </svg>
             </div>
           </div>
@@ -189,5 +187,5 @@ const HomePage: React.FC<HomePageProps> = ({
     </div>
   );
 };
- 
+
 export default HomePage;
