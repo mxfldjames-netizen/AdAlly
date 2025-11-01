@@ -58,7 +58,7 @@ const HomePage: React.FC<HomePageProps> = ({
  
           {/* Right Side - Honeycomb Feature Grid */}
           {/* CHANGED: Swapped padding for a larger margin-top. Set height to h-72 */}
-          <div className="md:col-span-2 relative h-72 mt-12 sm:mt-14">
+          <div className="md:col-span-2 relative h-72 mt-8 sm:mt-10">
 
             {/* === HORIZONTAL ZIG-ZAG LAYOUT === */}
 
