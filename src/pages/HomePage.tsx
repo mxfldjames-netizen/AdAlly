@@ -45,34 +45,104 @@ const HomePage: React.FC<HomePageProps> = ({
       </div>
 
       {/* Hero Section */}
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20">
-        {/* Main Content Container */}
-        <div className="text-center space-y-6 sm:space-y-8 mb-8">
-          {/* Main Heading */}
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
-            <span className="bg-gradient-to-r from-black via-gray-800 to-gray-600 bg-clip-text text-transparent">
-              AI-Generated Ads & Short Films
-            </span>
-          </h1>
-          
-          {/* Subheading */}
-          <p className="text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl mx-auto">
-            Unleashing storytelling with AI creativity.
-          </p>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-8">
+        {/* Main Hero Content - Two Column Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-12">
+          {/* Left Side - Text Content */}
+          <div className="text-left space-y-6">
+            {/* Main Heading */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+              <span className="bg-gradient-to-r from-black via-gray-800 to-gray-600 bg-clip-text text-transparent">
+                AI-Generated Ads & Short Films
+              </span>
+            </h1>
 
-          {/* Start Creating Now Button */}
-          <button 
-            onClick={onStartCreating}
-            className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white transition-all duration-300 bg-gradient-to-r from-black to-gray-800 rounded-full hover:from-gray-800 hover:to-black hover:scale-105 hover:shadow-2xl hover:shadow-black/25"
-          >
-            <span className="relative z-10">Start Creating Now</span>
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-600 to-gray-700 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
-            <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-          </button>
+            {/* Subheading */}
+            <p className="text-gray-600 text-base sm:text-lg lg:text-xl leading-relaxed">
+              Unleashing storytelling with AI creativity.
+            </p>
+
+            {/* Start Creating Now Button */}
+            <button
+              onClick={onStartCreating}
+              className="group relative inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white transition-all duration-300 bg-gradient-to-r from-black to-gray-800 rounded-full hover:from-gray-800 hover:to-black hover:scale-105 hover:shadow-2xl hover:shadow-black/25"
+            >
+              <span className="relative z-10">Start Creating Now</span>
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-600 to-gray-700 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+              <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+            </button>
+          </div>
+
+          {/* Right Side - Honeycomb Feature Grid */}
+          <div className="relative h-[380px] lg:h-[420px]">
+            {/* Feature Circle 1 - Large (Top Center) */}
+            <div
+              className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-32 sm:w-36 sm:h-36 bg-gradient-to-br from-black to-gray-800 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group"
+            >
+              <div className="text-2xl sm:text-3xl font-bold group-hover:scale-110 transition-transform duration-300">1/20th</div>
+              <div className="text-xs sm:text-sm text-center px-2 group-hover:scale-110 transition-transform duration-300">Cost</div>
+              <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+            </div>
+
+            {/* Feature Circle 2 - Medium (Top Left) */}
+            <div
+              className="absolute top-20 left-8 sm:left-12 w-28 h-28 sm:w-32 sm:h-32 bg-gradient-to-br from-gray-700 to-gray-900 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group"
+            >
+              <div className="text-xl sm:text-2xl font-bold group-hover:scale-110 transition-transform duration-300">1/10th</div>
+              <div className="text-xs sm:text-sm text-center px-2 group-hover:scale-110 transition-transform duration-300">Time</div>
+              <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+            </div>
+
+            {/* Feature Circle 3 - Medium (Top Right) */}
+            <div
+              className="absolute top-20 right-8 sm:right-12 w-28 h-28 sm:w-32 sm:h-32 bg-gradient-to-br from-gray-800 to-black rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group"
+            >
+              <div className="text-xl sm:text-2xl font-bold group-hover:scale-110 transition-transform duration-300">5X</div>
+              <div className="text-xs sm:text-sm text-center px-2 group-hover:scale-110 transition-transform duration-300">Engagement</div>
+              <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+            </div>
+
+            {/* Feature Circle 4 - Small (Bottom Left) */}
+            <div
+              className="absolute bottom-28 left-16 sm:left-24 w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br from-black to-gray-700 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group"
+            >
+              <div className="text-lg sm:text-xl font-bold text-center px-2 group-hover:scale-110 transition-transform duration-300">Mass</div>
+              <div className="text-xs text-center px-2 group-hover:scale-110 transition-transform duration-300">Production</div>
+              <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+            </div>
+
+            {/* Feature Circle 5 - Small (Bottom Right) */}
+            <div
+              className="absolute bottom-28 right-16 sm:right-24 w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br from-gray-900 to-gray-700 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group"
+            >
+              <div className="text-lg sm:text-xl font-bold text-center px-2 group-hover:scale-110 transition-transform duration-300">Multi</div>
+              <div className="text-xs text-center px-2 group-hover:scale-110 transition-transform duration-300">Language</div>
+              <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+            </div>
+
+            {/* Feature Circle 6 - Extra Small (Bottom Center) */}
+            <div
+              className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-gray-800 to-black rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group"
+            >
+              <div className="text-base sm:text-lg font-bold text-center px-2 group-hover:scale-110 transition-transform duration-300">∞</div>
+              <div className="text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Variations</div>
+              <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+            </div>
+
+            {/* Connecting Lines Effect */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20" xmlns="http://www.w3.org/2000/svg">
+              <line x1="50%" y1="18%" x2="25%" y2="35%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
+              <line x1="50%" y1="18%" x2="75%" y2="35%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
+              <line x1="25%" y1="35%" x2="35%" y2="65%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
+              <line x1="75%" y1="35%" x2="65%" y2="65%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
+              <line x1="35%" y1="65%" x2="50%" y2="88%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
+              <line x1="65%" y1="65%" x2="50%" y2="88%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
+            </svg>
+          </div>
         </div>
 
         {/* Video Ads Carousel */}
-        <div className="w-full max-w-5xl mb-8">
+        <div className="w-full max-w-5xl mx-auto mb-8">
           <div className="text-center mb-6">
             <h2 className="text-xl sm:text-2xl font-bold text-black mb-2">Video Ads</h2>
             <p className="text-gray-600 text-sm sm:text-base">AI-generated video advertisements</p>
