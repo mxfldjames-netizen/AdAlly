@@ -32,7 +32,8 @@ const HomePage: React.FC<HomePageProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8 items-start mb-12">
           
           {/* Left Side - Text Content */}
-          <div className="md:col-span-1 text-left space-y-6 pt-8 sm:pt-12">
+          {/* CHANGED: Swapped padding for margin-top */}
+          <div className="md:col-span-1 text-left space-y-6 mt-12 sm:mt-16">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight max-w-sm">
               <span className="bg-gradient-to-r from-black via-gray-800 to-gray-600 bg-clip-text text-transparent">
                 AI-Generated
@@ -56,8 +57,8 @@ const HomePage: React.FC<HomePageProps> = ({
           </div>
 
           {/* Right Side - Honeycomb Feature Grid */}
-          {/* CHANGED: Increased top padding to move circles down */}
-          <div className="md:col-span-2 relative h-[280px] pt-16 sm:pt-20">
+          {/* CHANGED: Swapped padding for a larger margin-top. Set height to h-72 */}
+          <div className="md:col-span-2 relative h-72 mt-24 sm:mt-28">
 
             {/* === HORIZONTAL ZIG-ZAG LAYOUT === */}
 
@@ -71,8 +72,9 @@ const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             {/* Feature Circle 2 (Bottom-Left-Mid) */}
+            {/* CHANGED: Replaced bottom-0 with top-44 */}
             <div
-              className="absolute bottom-0 left-[15%] w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br from-gray-700 to-gray-900 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group -rotate-6"
+              className="absolute top-44 left-[15%] w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br from-gray-700 to-gray-900 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group -rotate-6"
             >
               <div className="text-xl sm:text-2xl font-bold group-hover:scale-110 transition-transform duration-300">1/10th</div>
               <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Time</div>
@@ -89,8 +91,9 @@ const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             {/* Feature Circle 4 (Bottom-Right-Mid) */}
+            {/* CHANGED: Replaced bottom-0 with top-44 */}
             <div
-              className="absolute bottom-0 left-[45%] w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br from-black to-gray-700 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group rotate-6"
+              className="absolute top-44 left-[45%] w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br from-black to-gray-700 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group rotate-6"
             >
               <div className="text-xl sm:text-2xl font-bold text-center px-1 group-hover:scale-110 transition-transform duration-300">Mass</div>
               <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Prod</div>
@@ -107,8 +110,9 @@ const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             {/* Feature Circle 6 (Bottom-Right) */}
+            {/* CHANGED: Replaced bottom-0 with top-44 */}
             <div
-              className="absolute bottom-0 left-[75%] w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br from-gray-800 to-black rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group rotate-4"
+              className="absolute top-44 left-[75%] w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br from-gray-800 to-black rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group rotate-4"
             >
               <div className="text-xl sm:text-2xl font-bold text-center group-hover:scale-110 transition-transform duration-300">∞</div>
               <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Vary</div>
@@ -117,6 +121,7 @@ const HomePage: React.FC<HomePageProps> = ({
 
 
             {/* Connecting Lines Effect */}
+            {/* SVG lines are unchanged, they will just move down with the container */}
             <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-15" xmlns="http://www.w3.org/2000/svg">
               {/* C1 (Top-L0) to C2 (Bot-L15) */}
               <line x1="10%" y1="20%" x2="25%" y2="80%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
