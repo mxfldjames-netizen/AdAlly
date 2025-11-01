@@ -56,8 +56,8 @@ const HomePage: React.FC<HomePageProps> = ({
           </div>
 
           {/* Right Side - Honeycomb Feature Grid */}
-          {/* CHANGED: Added matching top padding to align with the text column */}
-          <div className="md:col-span-2 relative h-[280px] pt-8 sm:pt-12">
+          {/* CHANGED: Increased top padding to move circles down */}
+          <div className="md:col-span-2 relative h-[280px] pt-16 sm:pt-20">
 
             {/* === HORIZONTAL ZIG-ZAG LAYOUT === */}
 
