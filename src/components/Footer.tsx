@@ -1,4 +1,5 @@
 import React from 'react';
+import { Youtube, Instagram, Linkedin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -10,18 +11,18 @@ const Footer: React.FC = () => {
               <img src="/logo.png" alt="Adally" className="h-8 w-auto" />
             </div>
             <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6 max-w-md">
-              Pioneering the future of storytelling through AI-powered video creation. Transform your ideas into stunning visual narratives.
+              Pioneering the future of storytelling through AI-powered video creations. Transform your ideas into stunning visual narratives.
             </p>
             <div className="flex space-x-4">
-              <button className="bg-black hover:bg-gray-800 text-white p-3 rounded-full transition-colors duration-300">
-                <div className="w-5 h-5 bg-current" style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }} />
-              </button>
-              <button className="bg-black hover:bg-gray-800 text-white p-3 rounded-full transition-colors duration-300">
-                <div className="w-5 h-5 bg-current rounded-full" />
-              </button>
-              <button className="bg-black hover:bg-gray-800 text-white p-3 rounded-full transition-colors duration-300">
-                <div className="w-5 h-5 bg-current" style={{ clipPath: "polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%)" }} />
-              </button>
+              <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="bg-black hover:bg-gray-800 text-white p-3 rounded-full transition-colors duration-300">
+                <Youtube className="w-5 h-5" />
+              </a>
+              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="bg-black hover:bg-gray-800 text-white p-3 rounded-full transition-colors duration-300">
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-black hover:bg-gray-800 text-white p-3 rounded-full transition-colors duration-300">
+                <Linkedin className="w-5 h-5" />
+              </a>
             </div>
           </div>
           <div>
@@ -56,4 +57,4 @@ const Footer: React.FC = () => {
   );
 };
 
-export default Footer;
+export default Footer; 
