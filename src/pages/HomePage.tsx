@@ -56,90 +56,89 @@ const HomePage: React.FC<HomePageProps> = ({
           </div>
 
           {/* Right Side - Honeycomb Feature Grid */}
-          <div className="md:col-span-2 flex items-start justify-center pt-4 md:pt-0">
-            {/* Wrapper for controlled circle positioning */}
-            <div className="relative h-[280px] w-full max-w-sm">
+          {/* CHANGED: Removed the 'max-w-sm' wrapper and flex classes. 
+              The circles are now positioned relative to this full-width column. 
+              Set height to 280px to fit the two rows.
+          */}
+          <div className="md:col-span-2 relative h-[280px] mt-8 md:mt-0">
 
-              {/* === TOP ROW === */}
-              
-              {/* Feature Circle 1 (Top Left) */}
-              {/* CHANGED: Standardized size and position */}
-              <div
-                className="absolute top-0 left-0 w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-black to-gray-800 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group rotate-3"
-              >
-                <div className="text-lg sm:text-xl font-bold group-hover:scale-110 transition-transform duration-300">1/20th</div>
-                <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Cost</div>
-                <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-              </div>
+            {/* === HORIZONTAL ZIG-ZAG LAYOUT === */}
 
-              {/* Feature Circle 2 (Top Middle) */}
-              {/* CHANGED: Standardized size and position */}
-              <div
-                className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-gray-700 to-gray-900 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group -rotate-6"
-              >
-                <div className="text-lg sm:text-xl font-bold group-hover:scale-110 transition-transform duration-300">1/10th</div>
-                <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Time</div>
-                <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-              </div>
-
-              {/* Feature Circle 3 (Top Right) */}
-              {/* CHANGED: Standardized size and position */}
-              <div
-                className="absolute top-0 right-0 w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-gray-800 to-black rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group rotate-2"
-              >
-                <div className="text-lg sm:text-xl font-bold group-hover:scale-110 transition-transform duration-300">5X</div>
-                <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Engagement</div>
-                <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-              </div>
-
-              {/* === BOTTOM ROW === */}
-
-              {/* Feature Circle 4 (Bottom Left) */}
-              {/* CHANGED: Standardized size and position */}
-              <div
-                className="absolute bottom-0 left-0 w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-black to-gray-700 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group rotate-6"
-              >
-                <div className="text-lg sm:text-xl font-bold text-center px-1 group-hover:scale-110 transition-transform duration-300">Mass</div>
-                <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Prod</div>
-                <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-              </div>
-
-              {/* Feature Circle 5 (Bottom Middle) */}
-              {/* CHANGED: Standardized size and position */}
-              <div
-                className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-gray-900 to-gray-700 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group -rotate-3"
-              >
-                <div className="text-lg sm:text-xl font-bold text-center px-1 group-hover:scale-110 transition-transform duration-300">Multi</div>
-                <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Lang</div>
-                <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-              </div>
-
-              {/* Feature Circle 6 (Bottom Right) */}
-              {/* CHANGED: Standardized size and position */}
-              <div
-                className="absolute bottom-0 right-0 w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-gray-800 to-black rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group rotate-4"
-              >
-                <div className="text-lg sm:text-xl font-bold text-center group-hover:scale-110 transition-transform duration-300">∞</div>
-                <div className="text-[10px] sm:text-xs text-center group-hover:scale-110 transition-transform duration-300">Vary</div>
-                <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-              </div>
-
-
-              {/* Connecting Lines Effect */}
-              {/* CHANGED: Coordinates updated for the 2x3 grid */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-15" xmlns="http://www.w3.org/2000/svg">
-                {/* C1 (Top-L) to C4 (Bot-L) */}
-                <line x1="15%" y1="20%" x2="15%" y2="80%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
-                {/* C4 (Bot-L) to C2 (Top-M) */}
-                <line x1="15%" y1="80%" x2="50%" y2="20%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
-                {/* C2 (Top-M) to C5 (Bot-M) */}
-                <line x1="50%" y1="20%" x2="50%" y2="80%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
-                {/* C5 (Bot-M) to C3 (Top-R) */}
-                <line x1="50%" y1="80%" x2="85%" y2="20%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
-                {/* C3 (Top-R) to C6 (Bot-R) */}
-                <line x1="85%" y1="20%" x2="85%" y2="80%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
-              </svg>
+            {/* Feature Circle 1 (Top-Left) */}
+            {/* CHANGED: Standardized size, positioned with percentages */}
+            <div
+              className="absolute top-0 left-0 w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-black to-gray-800 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group rotate-3"
+            >
+              <div className="text-lg sm:text-xl font-bold group-hover:scale-110 transition-transform duration-300">1/20th</div>
+              <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Cost</div>
+              <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
             </div>
+
+            {/* Feature Circle 2 (Bottom-Left-Mid) */}
+            {/* CHANGED: Standardized size, positioned with percentages */}
+            <div
+              className="absolute bottom-0 left-[20%] w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-gray-700 to-gray-900 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group -rotate-6"
+            >
+              <div className="text-lg sm:text-xl font-bold group-hover:scale-110 transition-transform duration-300">1/10th</div>
+              <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Time</div>
+              <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+            </div>
+
+            {/* Feature Circle 3 (Top-Mid) */}
+            {/* CHANGED: Standardized size, positioned with percentages */}
+            <div
+              className="absolute top-0 left-[40%] w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-gray-800 to-black rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group rotate-2"
+            >
+              <div className="text-lg sm:text-xl font-bold group-hover:scale-110 transition-transform duration-300">5X</div>
+              <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Engagement</div>
+              <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+            </div>
+
+            {/* Feature Circle 4 (Bottom-Right-Mid) */}
+            {/* CHANGED: Standardized size, positioned with percentages */}
+            <div
+              className="absolute bottom-0 left-[60%] w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-black to-gray-700 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group rotate-6"
+            >
+              <div className="text-lg sm:text-xl font-bold text-center px-1 group-hover:scale-110 transition-transform duration-300">Mass</div>
+              <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Prod</div>
+              <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+            </div>
+
+            {/* Feature Circle 5 (Top-Right) */}
+            {/* CHANGED: Standardized size, positioned with percentages */}
+            <div
+              className="absolute top-0 left-[80%] w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-gray-900 to-gray-700 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group -rotate-3"
+            >
+              <div className="text-lg sm:text-xl font-bold text-center px-1 group-hover:scale-110 transition-transform duration-300">Multi</div>
+              <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Lang</div>
+              <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+            </div>
+
+            {/* Feature Circle 6 (Bottom-Right) */}
+            {/* CHANGED: Standardized size, positioned at right-0 */}
+            <div
+              className="absolute bottom-0 right-0 w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-gray-800 to-black rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group rotate-4"
+            >
+              <div className="text-lg sm:text-xl font-bold text-center group-hover:scale-110 transition-transform duration-300">∞</div>
+              <div className="text-[10px] sm:text-xs text-center group-hover:scale-110 transition-transform duration-300">Vary</div>
+              <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+            </div>
+
+
+            {/* Connecting Lines Effect */}
+            {/* CHANGED: New SVG path for the wide horizontal zig-zag */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-15" xmlns="http://www.w3.org/2000/svg">
+              {/* C1 (Top-L) to C2 (Bot-L20) */}
+              <line x1="5%" y1="20%" x2="25%" y2="80%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
+              {/* C2 (Bot-L20) to C3 (Top-L40) */}
+              <line x1="25%" y1="80%" x2="45%" y2="20%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
+              {/* C3 (Top-L40) to C4 (Bot-L60) */}
+              <line x1="45%" y1="20%" x2="65%" y2="80%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
+              {/* C4 (Bot-L60) to C5 (Top-L80) */}
+              <line x1="65%" y1="80%" x2="85%" y2="20%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
+              {/* C5 (Top-L80) to C6 (Bot-R) */}
+              <line x1="85%" y1="20%" x2="95%" y2="80%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
+            </svg>
           </div>
         </div>
 
