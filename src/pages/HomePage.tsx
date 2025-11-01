@@ -27,13 +27,11 @@ const HomePage: React.FC<HomePageProps> = ({
       {/* ... (Background Effects remain the same) ... */}
 
       {/* Hero Section */}
-      {/* CHANGED: Reverted padding back to original values */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 pb-8">
         {/* Main Hero Content - Two Column Layout */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8 items-start mb-12">
           
           {/* Left Side - Text Content */}
-          {/* CHANGED: Added padding here to push *only* this column's content down */}
           <div className="md:col-span-1 text-left space-y-6 pt-8 sm:pt-12">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight max-w-sm">
               <span className="bg-gradient-to-r from-black via-gray-800 to-gray-600 bg-clip-text text-transparent">
@@ -58,8 +56,8 @@ const HomePage: React.FC<HomePageProps> = ({
           </div>
 
           {/* Right Side - Honeycomb Feature Grid */}
-          {/* This div is NOT changed and will stay aligned to the top of its grid cell */}
-          <div className="md:col-span-2 relative h-[280px] mt-8 md:mt-0">
+          {/* CHANGED: Increased top padding to move circles down */}
+          <div className="md:col-span-2 relative h-[280px] pt-16 sm:pt-20">
 
             {/* === HORIZONTAL ZIG-ZAG LAYOUT === */}
 
@@ -184,4 +182,4 @@ const HomePage: React.FC<HomePageProps> = ({
   );
 };
 
-export default HomePage; 
+export default HomePage;
