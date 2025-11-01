@@ -55,10 +55,10 @@ const HomePage: React.FC<HomePageProps> = ({
               <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
             </button>
           </div>
-
+ 
           {/* Right Side - Honeycomb Feature Grid */}
           {/* CHANGED: Swapped padding for a larger margin-top. Set height to h-72 */}
-          <div className="md:col-span-2 relative h-72 mt-10 sm:mt-12">
+          <div className="md:col-span-2 relative h-72 mt-12 sm:mt-14">
 
             {/* === HORIZONTAL ZIG-ZAG LAYOUT === */}
 
