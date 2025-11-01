@@ -58,82 +58,82 @@ const HomePage: React.FC<HomePageProps> = ({
           {/* Right Side - Honeycomb Feature Grid */}
           <div className="md:col-span-2 flex items-start justify-center pt-4 md:pt-0">
             {/* Wrapper for controlled circle positioning */}
-            {/* CHANGED: Increased height to h-[320px] to allow for vertical zig-zag spacing */}
-            <div className="relative h-[320px] w-full max-w-sm">
+            {/* CHANGED: Increased height to h-[360px] to fit bigger circles in new pattern */}
+            <div className="relative h-[360px] w-full max-w-sm">
 
               {/* Feature Circle 1 - Large (Top Left) */}
-              {/* CHANGED: Positioned at top-0 left-4 */}
+              {/* CHANGED: Back to larger size, new position */}
               <div
-                className="absolute top-0 left-4 w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-black to-gray-800 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group rotate-3"
+                className="absolute top-0 left-4 w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br from-black to-gray-800 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group rotate-3"
               >
-                <div className="text-lg sm:text-xl font-bold group-hover:scale-110 transition-transform duration-300">1/20th</div>
-                <div className="text-[9px] sm:text-[10px] text-center px-1 group-hover:scale-110 transition-transform duration-300">Cost</div>
+                <div className="text-xl sm:text-2xl font-bold group-hover:scale-110 transition-transform duration-300">1/20th</div>
+                <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Cost</div>
                 <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
               </div>
 
-              {/* Feature Circle 2 - Medium (Top-Mid Right) */}
-              {/* CHANGED: Positioned at top-12 right-4 */}
+              {/* Feature Circle 2 - Medium (Top Right) */}
+              {/* CHANGED: Back to larger size, new position */}
               <div
-                className="absolute top-12 right-4 w-18 h-18 sm:w-20 sm:h-20 bg-gradient-to-br from-gray-700 to-gray-900 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group -rotate-6"
+                className="absolute top-4 right-4 w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-gray-700 to-gray-900 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group -rotate-6"
               >
-                <div className="text-base sm:text-lg font-bold group-hover:scale-110 transition-transform duration-300">1/10th</div>
-                <div className="text-[9px] sm:text-[10px] text-center px-1 group-hover:scale-110 transition-transform duration-300">Time</div>
+                <div className="text-lg sm:text-xl font-bold group-hover:scale-110 transition-transform duration-300">1/10th</div>
+                <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Time</div>
                 <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
               </div>
 
-              {/* Feature Circle 3 - Medium (Mid Left) */}
-              {/* CHANGED: Positioned at top-32 left-12 (below C1) */}
+              {/* Feature Circle 3 - Medium (Mid-Left) */}
+              {/* CHANGED: Back to larger size, new position */}
               <div
-                className="absolute top-32 left-12 w-18 h-18 sm:w-20 sm:h-20 bg-gradient-to-br from-gray-800 to-black rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group rotate-2"
+                className="absolute top-32 left-12 w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-gray-800 to-black rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group rotate-2"
               >
-                <div className="text-base sm:text-lg font-bold group-hover:scale-110 transition-transform duration-300">5X</div>
-                <div className="text-[9px] sm:text-[10px] text-center px-1 group-hover:scale-110 transition-transform duration-300">Engagement</div>
+                <div className="text-lg sm:text-xl font-bold group-hover:scale-110 transition-transform duration-300">5X</div>
+                <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Engagement</div>
                 <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
               </div>
 
-              {/* Feature Circle 4 - Small (Mid-Bottom Right) */}
-              {/* CHANGED: Positioned at top-40 right-16 (below C2) */}
+              {/* Feature Circle 4 - Small (Mid-Right) */}
+              {/* CHANGED: Back to larger size, new position */}
               <div
-                className="absolute top-40 right-16 w-16 h-16 sm:w-18 sm:h-18 bg-gradient-to-br from-black to-gray-700 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group rotate-6"
+                className="absolute top-40 right-12 w-18 h-18 sm:w-20 sm:h-20 bg-gradient-to-br from-black to-gray-700 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group rotate-6"
               >
-                <div className="text-xs sm:text-sm font-bold text-center px-1 group-hover:scale-110 transition-transform duration-300">Mass</div>
-                <div className="text-[8px] sm:text-[9px] text-center px-1 group-hover:scale-110 transition-transform duration-300">Prod</div>
+                <div className="text-sm sm:text-base font-bold text-center px-1 group-hover:scale-110 transition-transform duration-300">Mass</div>
+                <div className="text-[9px] sm:text-[10px] text-center px-1 group-hover:scale-110 transition-transform duration-300">Prod</div>
                 <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
               </div>
 
               {/* Feature Circle 5 - Small (Bottom Left) */}
-              {/* CHANGED: Positioned at bottom-4 left-8 (below C3) */}
+              {/* CHANGED: Back to larger size, new position */}
               <div
-                className="absolute bottom-4 left-8 w-16 h-16 sm:w-18 sm:h-18 bg-gradient-to-br from-gray-900 to-gray-700 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group -rotate-3"
+                className="absolute bottom-4 left-8 w-18 h-18 sm:w-20 sm:h-20 bg-gradient-to-br from-gray-900 to-gray-700 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group -rotate-3"
               >
-                <div className="text-xs sm:text-sm font-bold text-center px-1 group-hover:scale-110 transition-transform duration-300">Multi</div>
-                <div className="text-[8px] sm:text-[9px] text-center px-1 group-hover:scale-110 transition-transform duration-300">Lang</div>
+                <div className="text-sm sm:text-base font-bold text-center px-1 group-hover:scale-110 transition-transform duration-300">Multi</div>
+                <div className="text-[9px] sm:text-[10px] text-center px-1 group-hover:scale-110 transition-transform duration-300">Lang</div>
                 <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
               </div>
 
               {/* Feature Circle 6 - Extra Small (Bottom Right) */}
-              {/* CHANGED: Positioned at bottom-0 right-8 (below C4) */}
+              {/* CHANGED: Back to larger size, new position */}
               <div
-                className="absolute bottom-0 right-8 w-14 h-14 sm:w-16 h-16 bg-gradient-to-br from-gray-800 to-black rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group rotate-4"
+                className="absolute bottom-0 right-16 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-gray-800 to-black rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group rotate-4"
               >
-                <div className="text-sm sm:text-base font-bold text-center group-hover:scale-110 transition-transform duration-300">∞</div>
-                <div className="text-[8px] sm:text-[9px] text-center group-hover:scale-110 transition-transform duration-300">Vary</div>
+                <div className="text-base sm:text-lg font-bold text-center group-hover:scale-110 transition-transform duration-300">∞</div>
+                <div className="text-[9px] sm:text-[10px] text-center group-hover:scale-110 transition-transform duration-300">Vary</div>
                 <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
               </div>
 
               {/* Connecting Lines Effect */}
-              {/* CHANGED: Updated SVG lines to create a 5-line zig-zag path */}
+              {/* CHANGED: Updated SVG lines to create the new "Z" path */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-15" xmlns="http://www.w3.org/2000/svg">
                 {/* C1 (Top-L) to C2 (Top-R) */}
-                <line x1="15%" y1="10%" x2="90%" y2="20%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
+                <line x1="15%" y1="15%" x2="85%" y2="12%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
                 {/* C2 (Top-R) to C3 (Mid-L) */}
-                <line x1="90%" y1="20%" x2="20%" y2="45%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
+                <line x1="85%" y1="12%" x2="20%" y2="45%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
                 {/* C3 (Mid-L) to C4 (Mid-R) */}
                 <line x1="20%" y1="45%" x2="80%" y2="55%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
                 {/* C4 (Mid-R) to C5 (Bot-L) */}
-                <line x1="80%" y1="55%" x2="15%" y2="90%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
+                <line x1="80%" y1="55%" x2="18%" y2="85%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
                 {/* C5 (Bot-L) to C6 (Bot-R) */}
-                <line x1="15%" y1="90%" x2="85%" y2="95%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
+                <line x1="18%" y1="85%" x2="82%" y2="90%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
               </svg>
             </div>
           </div>
@@ -178,7 +178,7 @@ const HomePage: React.FC<HomePageProps> = ({
             number="100"
             label="PRODUCTIVITY"
             delay={400}
-          />
+          }
         </div>
 
       </div>
