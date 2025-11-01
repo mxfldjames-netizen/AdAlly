@@ -94,7 +94,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children, activeTab, 
         <div className="flex flex-col h-full">
           {/* Header */}
           <div className="p-6 border-b border-gray-200">
-            <img src="/logo.png" alt="Movico Studio" className="h-8 w-auto mb-4" />
+            <img src="/logo.png" alt="Adally" className="h-8 w-auto mb-4" />
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
                 <User className="w-5 h-5 text-gray-600" />
