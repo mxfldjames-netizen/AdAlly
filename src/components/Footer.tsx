@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <img src="/logo.png" alt="Movico Studio" className="h-8 w-auto" />
+              <img src="/logo.png" alt="Adally" className="h-8 w-auto" />
             </div>
             <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6 max-w-md">
               Pioneering the future of storytelling through AI-powered video creation. Transform your ideas into stunning visual narratives.
