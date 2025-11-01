@@ -77,7 +77,7 @@ const ChatAgent: React.FC = () => {
     const welcomeMessage = {
       user_id: user.id,
       agent_id: 'system',
-      message: `Hello ${user.user_metadata?.full_name || 'there'}! 👋 I'm your personal creative agent at Movico Studio. I'm here to help you bring your brand's vision to life through AI-generated content.\n\nI can assist you with:\n• Creating compelling ad concepts\n• Developing brand storytelling strategies\n• Optimizing your content for different platforms\n• Providing creative direction and feedback\n\nWhat would you like to create today?`,
+      message: `Hello ${user.user_metadata?.full_name || 'there'}! 👋 I'm your personal creative agent at Adally. I'm here to help you bring your brand's vision to life through AI-generated content.\n\nI can assist you with:\n• Creating compelling ad concepts\n• Developing brand storytelling strategies\n• Optimizing your content for different platforms\n• Providing creative direction and feedback\n\nWhat would you like to create today?`,
       sender_type: 'agent' as const,
     };
 
