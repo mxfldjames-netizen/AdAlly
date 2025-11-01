@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Upload, Mail, Phone, MapPin, Clock, CheckCircle } from 'lucide-react';
+import { ArrowLeft, Upload, Mail, Phone, MapPin, Clock, CheckCircle, AlertCircle } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 import Footer from '../components/Footer';
+import { v4 as uuidv4 } from 'uuid';
 
 interface ContactPageProps {
   onBack: () => void;
@@ -15,6 +17,8 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBack }) => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [dragActive, setDragActive] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -65,11 +69,61 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBack }) => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const uploadFiles = async (): Promise<string[]> => {
+    const fileUrls: string[] = [];
+
+    for (const file of formData.files) {
+      try {
+        const fileExt = file.name.split('.').pop();
+        const fileName = `contact-${uuidv4()}.${fileExt}`;
+        const filePath = `contact-requests/${fileName}`;
+
+        const { error: uploadError } = await supabase.storage
+          .from('brand-assets')
+          .upload(filePath, file);
+
+        if (uploadError) throw uploadError;
+
+        const { data: { publicUrl } } = supabase.storage
+          .from('brand-assets')
+          .getPublicUrl(filePath);
+
+        fileUrls.push(publicUrl);
+      } catch (error) {
+        console.error('Error uploading file:', error);
+      }
+    }
+
+    return fileUrls;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const fileUrls = await uploadFiles();
+
+      const { error: insertError } = await supabase
+        .from('contact_requests')
+        .insert({
+          name: formData.name,
+          email: formData.email,
+          prompt: formData.prompt,
+          file_urls: fileUrls,
+          status: 'new',
+        });
+
+      if (insertError) throw insertError;
+
+      setIsSubmitted(true);
+    } catch (err) {
+      console.error('Error submitting form:', err);
+      setError('Failed to submit your request. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   if (isSubmitted) {
@@ -237,12 +291,21 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBack }) => {
                 )}
               </div>
 
+              {/* Error Message */}
+              {error && (
+                <div className="flex items-start gap-3 p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                  <p className="text-red-700">{error}</p>
+                </div>
+              )}
+
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-black to-gray-800 text-white py-4 px-6 rounded-lg font-semibold hover:from-gray-800 hover:to-black transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                disabled={isLoading}
+                className="w-full bg-gradient-to-r from-black to-gray-800 text-white py-4 px-6 rounded-lg font-semibold hover:from-gray-800 hover:to-black transition-all duration-300 hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
-                Submit Project Request
+                {isLoading ? 'Submitting...' : 'Submit Project Request'}
               </button>
             </form>
 
