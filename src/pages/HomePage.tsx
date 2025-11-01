@@ -27,12 +27,14 @@ const HomePage: React.FC<HomePageProps> = ({
       {/* ... (Background Effects remain the same) ... */}
 
       {/* Hero Section */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-8">
+      {/* CHANGED: Reverted padding back to original values */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 pb-8">
         {/* Main Hero Content - Two Column Layout */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8 items-start mb-12">
+          
           {/* Left Side - Text Content */}
-          <div className="md:col-span-1 text-left space-y-6">
-            {/* ... (h1, p, and button remain the same) ... */}
+          {/* CHANGED: Added padding here to push *only* this column's content down */}
+          <div className="md:col-span-1 text-left space-y-6 pt-8 sm:pt-12">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight max-w-sm">
               <span className="bg-gradient-to-r from-black via-gray-800 to-gray-600 bg-clip-text text-transparent">
                 AI-Generated
@@ -56,7 +58,7 @@ const HomePage: React.FC<HomePageProps> = ({
           </div>
 
           {/* Right Side - Honeycomb Feature Grid */}
-          {/* CHANGED: Reduced height from h-[320px] to h-[280px] to tighten the gap */}
+          {/* This div is NOT changed and will stay aligned to the top of its grid cell */}
           <div className="md:col-span-2 relative h-[280px] mt-8 md:mt-0">
 
             {/* === HORIZONTAL ZIG-ZAG LAYOUT === */}
@@ -132,6 +134,8 @@ const HomePage: React.FC<HomePageProps> = ({
           </div>
         </div>
 
+        {/* ... (Rest of the page remains the same) ... */}
+
         {/* Video Ads Carousel */}
         <div className="w-full max-w-5xl mx-auto mb-8">
           <div className="text-center mb-6">
@@ -142,7 +146,6 @@ const HomePage: React.FC<HomePageProps> = ({
         </div>
 
         {/* Static Ads Carousel */}
-        {/* CHANGED: Added mx-auto to center the container */}
         <div className="w-full max-w-5xl mx-auto mb-16">
           <div className="text-center mb-6">
             <h2 className="text-xl sm:text-2xl font-bold text-black mb-2">Static Ads</h2>
