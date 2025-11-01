@@ -27,12 +27,12 @@ const HomePage: React.FC<HomePageProps> = ({
       {/* ... (Background Effects remain the same) ... */}
 
       {/* Hero Section */}
-      {/* CHANGED: Increased top padding from pt-16 sm:pt-20 to pt-24 sm:pt-32 */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-8">
         {/* Main Hero Content - Two Column Layout */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8 items-start mb-12">
           {/* Left Side - Text Content */}
           <div className="md:col-span-1 text-left space-y-6">
+            {/* ... (h1, p, and button remain the same) ... */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight max-w-sm">
               <span className="bg-gradient-to-r from-black via-gray-800 to-gray-600 bg-clip-text text-transparent">
                 AI-Generated
@@ -56,7 +56,8 @@ const HomePage: React.FC<HomePageProps> = ({
           </div>
 
           {/* Right Side - Honeycomb Feature Grid */}
-          <div className="md:col-span-2 relative h-[320px] mt-8 md:mt-0">
+          {/* CHANGED: Reduced height from h-[320px] to h-[280px] to tighten the gap */}
+          <div className="md:col-span-2 relative h-[280px] mt-8 md:mt-0">
 
             {/* === HORIZONTAL ZIG-ZAG LAYOUT === */}
 
@@ -110,7 +111,7 @@ const HomePage: React.FC<HomePageProps> = ({
               className="absolute bottom-0 left-[75%] w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br from-gray-800 to-black rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group rotate-4"
             >
               <div className="text-xl sm:text-2xl font-bold text-center group-hover:scale-110 transition-transform duration-300">∞</div>
-              <div className="text-[10px] sm:text-xs text-center group-hover:scale-110 transition-transform duration-300">Vary</div>
+              <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Vary</div>
               <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
             </div>
 
@@ -131,8 +132,6 @@ const HomePage: React.FC<HomePageProps> = ({
           </div>
         </div>
 
-        {/* ... (Rest of the page remains the same) ... */}
-
         {/* Video Ads Carousel */}
         <div className="w-full max-w-5xl mx-auto mb-8">
           <div className="text-center mb-6">
@@ -143,7 +142,8 @@ const HomePage: React.FC<HomePageProps> = ({
         </div>
 
         {/* Static Ads Carousel */}
-        <div className="w-full max-w-5xl mb-16">
+        {/* CHANGED: Added mx-auto to center the container */}
+        <div className="w-full max-w-5xl mx-auto mb-16">
           <div className="text-center mb-6">
             <h2 className="text-xl sm:text-2xl font-bold text-black mb-2">Static Ads</h2>
             <p className="text-gray-600 text-sm sm:text-base">AI-generated static advertisements</p>
