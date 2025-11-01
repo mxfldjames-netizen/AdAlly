@@ -93,7 +93,7 @@ const videoData = [
   },
   {
     id: 11,
-    title: "Hotwheels",
+    title: "Raycon",
     thumbnail:
       "https://m.media-amazon.com/images/I/51ZMBTjBG8L.jpg",
     video: "https://youtube.com/embed/qIenNou0Un8",
