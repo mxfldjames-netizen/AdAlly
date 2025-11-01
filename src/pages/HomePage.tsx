@@ -1,5 +1,12 @@
 import React from 'react';
-import { Sparkles, Zap, Award } from 'lucide-react';
+import { 
+  Sparkles, 
+  Zap, 
+  Award, 
+  FastForward, 
+  DollarSign, 
+  TrendingUp 
+} from 'lucide-react';
 import AnimatedStatsCard from '../AnimatedStatsCard';
 import VideoCarousel from '../components/VideoCarousel';
 import ImageCarousel from '../components/ImageCarousel';
@@ -24,7 +31,12 @@ const HomePage: React.FC<HomePageProps> = ({
 }) => {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden">
-      {/* ... (Background Effects remain the same) ... */}
+      {/* Background Effects */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(0,0,0,0.05),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(0,0,0,0.05),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:100px_100px]" />
+      </div>
 
       {/* Hero Section */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 pb-8">
@@ -32,7 +44,6 @@ const HomePage: React.FC<HomePageProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8 items-start mb-12">
           
           {/* Left Side - Text Content */}
-          {/* CHANGED: Swapped padding for margin-top */}
           <div className="md:col-span-1 text-left space-y-6 mt-12 sm:mt-16">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight max-w-sm">
               <span className="bg-gradient-to-r from-black via-gray-800 to-gray-600 bg-clip-text text-transparent">
@@ -55,85 +66,38 @@ const HomePage: React.FC<HomePageProps> = ({
               <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
             </button>
           </div>
- 
-          {/* Right Side - Honeycomb Feature Grid */}
-          {/* CHANGED: Swapped padding for a larger margin-top. Set height to h-72 */}
-          <div className="md:col-span-2 relative h-72 mt-8 sm:mt-10">
 
-            {/* === HORIZONTAL ZIG-ZAG LAYOUT === */}
+          {/* Right Side - NEW AESTHETIC: Cascading Glass Cards */}
+          {/* CHANGED: Replaced all circles with this new card layout */}
+          <div className="md:col-span-2 relative h-[320px] mt-12 sm:mt-16">
 
-            {/* Feature Circle 1 (Top-Left) */}
-            <div
-              className="absolute top-0 left-0 w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br from-black to-gray-800 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group rotate-3"
-            >
-              <div className="text-xl sm:text-2xl font-bold group-hover:scale-110 transition-transform duration-300">1/20th</div>
-              <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Cost</div>
-              <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+            {/* Card 1: Time */}
+            <div className="absolute top-0 left-4 w-44 h-32 sm:w-48 sm:h-36 bg-white/30 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-4 flex flex-col justify-between transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer -rotate-3">
+              <FastForward className="w-6 h-6 text-black/70" />
+              <div>
+                <div className="text-2xl sm:text-3xl font-bold text-black">1/10th</div>
+                <div className="text-sm font-medium text-black/70">Time</div>
+              </div>
             </div>
 
-            {/* Feature Circle 2 (Bottom-Left-Mid) */}
-            {/* CHANGED: Replaced bottom-0 with top-44 */}
-            <div
-              className="absolute top-44 left-[15%] w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br from-gray-700 to-gray-900 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group -rotate-6"
-            >
-              <div className="text-xl sm:text-2xl font-bold group-hover:scale-110 transition-transform duration-300">1/10th</div>
-              <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Time</div>
-              <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+            {/* Card 2: Cost */}
+            <div className="absolute top-24 left-[30%] w-44 h-32 sm:w-48 sm:h-36 bg-white/30 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-4 flex flex-col justify-between transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer rotate-2 z-10">
+              <DollarSign className="w-6 h-6 text-black/70" />
+              <div>
+                <div className="text-2xl sm:text-3xl font-bold text-black">1/20th</div>
+                <div className="text-sm font-medium text-black/70">Cost</div>
+              </div>
             </div>
 
-            {/* Feature Circle 3 (Top-Mid) */}
-            <div
-              className="absolute top-0 left-[30%] w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br from-gray-800 to-black rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group rotate-2"
-            >
-              <div className="text-xl sm:text-2xl font-bold group-hover:scale-110 transition-transform duration-300">5X</div>
-              <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Engagement</div>
-              <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+            {/* Card 3: Engagement */}
+            <div className="absolute top-48 left-[55%] w-44 h-32 sm:w-48 sm:h-36 bg-white/30 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-4 flex flex-col justify-between transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer -rotate-2">
+              <TrendingUp className="w-6 h-6 text-black/70" />
+              <div>
+                <div className="text-2xl sm:text-3xl font-bold text-black">5X</div>
+                <div className="text-sm font-medium text-black/70">Engagement</div>
+              </div>
             </div>
-
-            {/* Feature Circle 4 (Bottom-Right-Mid) */}
-            {/* CHANGED: Replaced bottom-0 with top-44 */}
-            <div
-              className="absolute top-44 left-[45%] w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br from-black to-gray-700 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group rotate-6"
-            >
-              <div className="text-xl sm:text-2xl font-bold text-center px-1 group-hover:scale-110 transition-transform duration-300">Mass</div>
-              <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Prod</div>
-              <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-            </div>
-
-            {/* Feature Circle 5 (Top-Right) */}
-            <div
-              className="absolute top-0 left-[60%] w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br from-gray-900 to-gray-700 rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:rotate-6 cursor-pointer group -rotate-3"
-            >
-              <div className="text-xl sm:text-2xl font-bold text-center px-1 group-hover:scale-110 transition-transform duration-300">Multi</div>
-              <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Lang</div>
-              <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-            </div>
-
-            {/* Feature Circle 6 (Bottom-Right) */}
-            {/* CHANGED: Replaced bottom-0 with top-44 */}
-            <div
-              className="absolute top-44 left-[75%] w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br from-gray-800 to-black rounded-full flex flex-col items-center justify-center text-white shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-rotate-6 cursor-pointer group rotate-4"
-            >
-              <div className="text-xl sm:text-2xl font-bold text-center group-hover:scale-110 transition-transform duration-300">∞</div>
-              <div className="text-[10px] sm:text-xs text-center px-1 group-hover:scale-110 transition-transform duration-300">Vary</div>
-              <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-            </div>
-
-
-            {/* Connecting Lines Effect */}
-            {/* SVG lines are unchanged, they will just move down with the container */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-15" xmlns="http://www.w3.org/2000/svg">
-              {/* C1 (Top-L0) to C2 (Bot-L15) */}
-              <line x1="10%" y1="20%" x2="25%" y2="80%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
-              {/* C2 (Bot-L15) to C3 (Top-L30) */}
-              <line x1="25%" y1="80%" x2="40%" y2="20%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
-              {/* C3 (Top-L30) to C4 (Bot-L45) */}
-              <line x1="40%" y1="20%" x2="55%" y2="80%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
-              {/* C4 (Bot-L45) to C5 (Top-L60) */}
-              <line x1="55%" y1="80%" x2="70%" y2="20%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
-              {/* C5 (Top-L60) to C6 (Bot-L75) */}
-              <line x1="70%" y1="20%" x2="85%" y2="80%" stroke="currentColor" strokeWidth="1" className="text-gray-400" />
-            </svg>
+            
           </div>
         </div>
 
