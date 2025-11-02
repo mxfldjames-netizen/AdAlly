@@ -81,7 +81,7 @@ const HomePage: React.FC<HomePageProps> = ({
               <FastForward className="w-8 h-8 text-black/70" />
               <div className="mt-2 text-center">
                 <div className="text-2xl sm:text-3xl font-bold text-black">1/10th</div>
-                <div className="text-base sm:text-lg font-semibold text-black/90">Time</div>
+                <div className="text-base sm:text-lg font-semibold text-black/90">Timez</div>
                 <div className="text-xs sm:text-sm font-medium text-black/70 mt-1">Create in Minutes, Not Weeks</div>
               </div>
             </div>
