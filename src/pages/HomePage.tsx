@@ -70,8 +70,8 @@ const HomePage: React.FC<HomePageProps> = ({
               Unleashing storytelling with AI creativity.
             </p>
 
-            {/* CHANGED: Removed max-w-sm to center the button in the full column */}
-            <div className="text-center">
+            {/* CHANGED: Swapped 'text-center' for 'flex justify-center' to force centering */}
+            <div className="flex justify-center">
               <button
                 onClick={onStartCreating}
                 className="group relative inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white transition-all duration-300 bg-gradient-to-r from-black to-gray-800 rounded-full hover:from-gray-800 hover:to-black hover:scale-105 hover:shadow-2xl hover:shadow-black/25"
