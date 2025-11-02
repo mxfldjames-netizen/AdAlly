@@ -57,8 +57,10 @@ const HomePage: React.FC<HomePageProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8 items-start mb-8">
           
           {/* Left Side - Text Content */}
-          <div className="md:col-span-1 flex flex-col items-start space-y-6 mt-12 sm:mt-16">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight max-w-sm">
+          {/* CHANGED: Centered items by default (mobile) and aligned start on desktop (md:items-start) */}
+          <div className="md:col-span-1 flex flex-col items-center md:items-start space-y-6 mt-12 sm:mt-16">
+            {/* CHANGED: Centered text by default (mobile) and left-aligned on desktop (md:text-left) */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight max-w-sm text-center md:text-left">
               <span className="bg-gradient-to-r from-black via-gray-800 to-gray-600 bg-clip-text text-transparent">
                 AI-Generated
                 <br />
@@ -66,7 +68,8 @@ const HomePage: React.FC<HomePageProps> = ({
               </span>
             </h1>
 
-            <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-sm">
+            {/* CHANGED: Centered text by default (mobile) and left-aligned on desktop (md:text-left) */}
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-sm text-center md:text-left">
               Unleashing storytelling with AI creativity.
             </p>
             
@@ -76,18 +79,16 @@ const HomePage: React.FC<HomePageProps> = ({
           <div className="md:col-span-2 mt-12 sm:mt-16 flex flex-col items-center md:flex-row md:items-start gap-4 justify-center md:justify-end">
 
             {/* Card 1: Time */}
-            {/* CHANGED: Adjusted text sizes and card height */}
             <div className="w-44 h-40 sm:w-48 sm:h-44 bg-white/30 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-4 sm:p-5 flex flex-col justify-center items-center text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer -rotate-3">
               <FastForward className="w-8 h-8 text-black/70" />
               <div className="mt-2 text-center">
                 <div className="text-2xl sm:text-3xl font-bold text-black">1/10th</div>
                 <div className="text-base sm:text-lg font-semibold text-black/90">Time</div>
-                <div className="text-xs sm:text-sm font-medium text-black/70 mt-1">Create in a day, Not Months</div>
+                <div className="text-xs sm:text-sm font-medium text-black/70 mt-1">Create in Minutes, Not Weeks</div>
               </div>
             </div>
 
             {/* Card 2: Cost */}
-            {/* CHANGED: Adjusted text sizes and card height */}
             <div className="w-44 h-40 sm:w-48 sm:h-44 bg-white/30 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-4 sm:p-5 flex flex-col justify-center items-center text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer rotate-2">
               <DollarSign className="w-8 h-8 text-black/70" />
               <div className="mt-2 text-center">
@@ -98,13 +99,12 @@ const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             {/* Card 3: Engagement */}
-            {/* CHANGED: Adjusted text sizes and card height */}
             <div className="w-44 h-40 sm:w-48 sm:h-44 bg-white/30 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-4 sm:p-5 flex flex-col justify-center items-center text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer -rotate-2">
               <TrendingUp className="w-8 h-8 text-black/70" />
               <div className="mt-2 text-center">
                 <div className="text-2xl sm:text-3xl font-bold text-black">5X</div>
                 <div className="text-base sm:text-lg font-semibold text-black/90">Engagement</div>
-                <div className="text-xs sm:text-sm font-medium text-black/70 mt-1">Ads That Interacts Better</div>
+                <div className="text-xs sm:text-sm font-medium text-black/70 mt-1">Ads That Perform 5× Better</div>
               </div>
             </div>
             
