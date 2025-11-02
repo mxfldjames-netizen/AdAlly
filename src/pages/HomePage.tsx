@@ -73,33 +73,35 @@ const HomePage: React.FC<HomePageProps> = ({
           </div>
 
           {/* Right Side - NEW AESTHETIC: Cascading Glass Cards */}
-          {/* CHANGED: Added 'justify-center' for mobile and 'md:justify-end' for desktop */}
           <div className="md:col-span-2 mt-12 sm:mt-16 flex flex-col items-center md:flex-row md:items-start gap-4 justify-center md:justify-end">
 
             {/* Card 1: Time */}
-            <div className="w-44 h-32 sm:w-48 sm:h-36 bg-white/30 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-4 flex flex-col justify-between transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer -rotate-3">
-              <FastForward className="w-6 h-6 text-black/70" />
-              <div>
-                <div className="text-2xl sm:text-3xl font-bold text-black">1/10th</div>
-                <div className="text-sm font-medium text-black/70">Time</div>
+            {/* CHANGED: Content and layout inside the card */}
+            <div className="w-44 h-36 sm:w-48 sm:h-40 bg-white/30 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-4 sm:p-5 flex flex-col justify-center items-center text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer -rotate-3">
+              <FastForward className="w-8 h-8 text-black/70" />
+              <div className="mt-2">
+                <div className="text-2xl sm:text-3xl font-bold text-black">1/10th Time</div>
+                <div className="text-xs sm:text-sm font-medium text-black/70 mt-1">Create in Minutes, Not Weeks</div>
               </div>
             </div>
 
             {/* Card 2: Cost */}
-            <div className="w-44 h-32 sm:w-48 sm:h-36 bg-white/30 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-4 flex flex-col justify-between transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer rotate-2">
-              <DollarSign className="w-6 h-6 text-black/70" />
-              <div>
-                <div className="text-2xl sm:text-3xl font-bold text-black">1/20th</div>
-                <div className="text-sm font-medium text-black/70">Cost</div>
+            {/* CHANGED: Content and layout inside the card */}
+            <div className="w-44 h-36 sm:w-48 sm:h-40 bg-white/30 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-4 sm:p-5 flex flex-col justify-center items-center text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer rotate-2">
+              <DollarSign className="w-8 h-8 text-black/70" />
+              <div className="mt-2">
+                <div className="text-2xl sm:text-3xl font-bold text-black">1/20th Cost</div>
+                <div className="text-xs sm:text-sm font-medium text-black/70 mt-1">Save 95% on Production Costs</div>
               </div>
             </div>
 
             {/* Card 3: Engagement */}
-            <div className="w-44 h-32 sm:w-48 sm:h-36 bg-white/30 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-4 flex flex-col justify-between transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer -rotate-2">
-              <TrendingUp className="w-6 h-6 text-black/70" />
-              <div>
-                <div className="text-2xl sm:text-3xl font-bold text-black">5X</div>
-                <div className="text-sm font-medium text-black/70">Engagement</div>
+            {/* CHANGED: Content and layout inside the card */}
+            <div className="w-44 h-36 sm:w-48 sm:h-40 bg-white/30 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-4 sm:p-5 flex flex-col justify-center items-center text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer -rotate-2">
+              <TrendingUp className="w-8 h-8 text-black/70" />
+              <div className="mt-2">
+                <div className="text-2xl sm:text-3xl font-bold text-black">5X Engagement</div>
+                <div className="text-xs sm:text-sm font-medium text-black/70 mt-1">Ads That Perform 5× Better</div>
               </div>
             </div>
             
