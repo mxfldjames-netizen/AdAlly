@@ -73,8 +73,8 @@ const HomePage: React.FC<HomePageProps> = ({
           </div>
 
           {/* Right Side - NEW AESTHETIC: Cascading Glass Cards */}
-          {/* CHANGED: Added 'items-center' for mobile and 'md:items-start' for desktop */}
-          <div className="md:col-span-2 mt-12 sm:mt-16 flex flex-col items-center md:flex-row md:items-start gap-4 justify-center">
+          {/* CHANGED: Added 'justify-center' for mobile and 'md:justify-end' for desktop */}
+          <div className="md:col-span-2 mt-12 sm:mt-16 flex flex-col items-center md:flex-row md:items-start gap-4 justify-center md:justify-end">
 
             {/* Card 1: Time */}
             <div className="w-44 h-32 sm:w-48 sm:h-36 bg-white/30 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-4 flex flex-col justify-between transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer -rotate-3">

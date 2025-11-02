@@ -340,11 +340,11 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBack }) => {
                 <div className="flex items-start gap-4">
                   <Phone className="w-6 h-6 text-black mt-1" />
                   <div>
-                    <h3 className="font-semibold text-black mb-1">Phone</h3>
+                    <h3 className="font-semibold text-black mb-1">Whatsapp</h3>
                     <p className="text-gray-600">+91 79076 18219</p>
                     <p className="text-sm text-gray-500">Any Day, 10AM-10PM IST</p>
                   </div>
-                </div>
+                </div> 
                 
                 <div className="flex items-start gap-4">
                   <MapPin className="w-6 h-6 text-black mt-1" />
