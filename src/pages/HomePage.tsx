@@ -69,8 +69,6 @@ const HomePage: React.FC<HomePageProps> = ({
             <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-sm">
               Unleashing storytelling with AI creativity.
             </p>
-
-            {/* CHANGED: The button has been REMOVED from this container */}
             
           </div>
 
@@ -107,7 +105,7 @@ const HomePage: React.FC<HomePageProps> = ({
           </div>
         </div> {/* <-- END of the 2-column grid */}
 
-        {/* CHANGED: NEW container for the button, outside the grid, to allow full-width centering */}
+        {/* NEW container for the button, outside the grid, to allow full-width centering */}
         <div className="flex justify-center mb-12">
           <button
             onClick={onStartCreating}
@@ -121,7 +119,8 @@ const HomePage: React.FC<HomePageProps> = ({
 
 
         {/* Video Ads Carousel */}
-        <div className="w-full max-w-5xl mx-auto mb-8">
+        {/* CHANGED: Swapped max-w-5xl for max-w-7xl */}
+        <div className="w-full max-w-7xl mx-auto mb-8">
           <div className="text-center mb-6">
             <h2 className="text-xl sm:text-2xl font-bold text-black mb-2">Video Ads</h2>
             <p className="text-gray-600 text-sm sm:text-base">AI-generated video advertisements</p>
@@ -130,7 +129,8 @@ const HomePage: React.FC<HomePageProps> = ({
         </div>
 
         {/* Static Ads Carousel */}
-        <div className="w-full max-w-5xl mx-auto mb-16">
+        {/* CHANGED: Swapped max-w-5xl for max-w-7xl */}
+        <div className="w-full max-w-7xl mx-auto mb-16">
           <div className="text-center mb-6">
             <h2 className="text-xl sm:text-2xl font-bold text-black mb-2">Static Ads</h2>
             <p className="text-gray-600 text-sm sm:text-base">AI-generated static advertisements</p>
