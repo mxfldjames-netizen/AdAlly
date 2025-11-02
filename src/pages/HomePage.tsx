@@ -57,7 +57,8 @@ const HomePage: React.FC<HomePageProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8 items-start mb-12">
           
           {/* Left Side - Text Content */}
-          <div className="md:col-span-1 text-left space-y-6 mt-12 sm:mt-16">
+          {/* CHANGED: Swapped to a flex-col layout with items-start */}
+          <div className="md:col-span-1 flex flex-col items-start space-y-6 mt-12 sm:mt-16">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight max-w-sm">
               <span className="bg-gradient-to-r from-black via-gray-800 to-gray-600 bg-clip-text text-transparent">
                 AI-Generated
@@ -70,21 +71,15 @@ const HomePage: React.FC<HomePageProps> = ({
               Unleashing storytelling with AI creativity.
             </p>
 
-            {/* CHANGED: Using a 3-column grid to force the button into the center column */}
-            <div className="grid grid-cols-3">
-              <div className="col-span-1"></div> {/* Empty spacer */}
-              <div className="col-span-1 flex justify-center"> {/* Center button in middle column */}
-                <button
-                  onClick={onStartCreating}
-                  className="group relative inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white transition-all duration-300 bg-gradient-to-r from-black to-gray-800 rounded-full hover:from-gray-800 hover:to-black hover:scale-105 hover:shadow-2xl hover:shadow-black/25"
-                >
-                  <span className="relative z-10">Start Creating Now</span>
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-600 to-gray-700 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
-                  <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-                </button>
-              </div>
-              <div className="col-span-1"></div> {/* Empty spacer */}
-            </div>
+            {/* CHANGED: Removed wrapper div and added 'self-center' to the button */}
+            <button
+              onClick={onStartCreating}
+              className="group relative self-center inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white transition-all duration-300 bg-gradient-to-r from-black to-gray-800 rounded-full hover:from-gray-800 hover:to-black hover:scale-105 hover:shadow-2xl hover:shadow-black/25"
+            >
+              <span className="relative z-10">Start Creating Now</span>
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-600 to-gray-700 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+              <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+            </button>
           </div>
 
           {/* Right Side - NEW AESTHETIC: Cascading Glass Cards */}
