@@ -52,22 +52,23 @@ const HomePage: React.FC<HomePageProps> = ({
               Unleashing storytelling with AI creativity.
             </p>
 
-            <button
-              onClick={onStartCreating}
-              className="group relative inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white transition-all duration-300 bg-gradient-to-r from-black to-gray-800 rounded-full hover:from-gray-800 hover:to-black hover:scale-105 hover:shadow-2xl hover:shadow-black/25"
-            >
-              <span className="relative z-10">Start Creating Now</span>
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-600 to-gray-700 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
-              <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-            </button>
+            {/* CHANGED: Wrapped button in a div with max-w-sm and text-center */}
+            <div className="max-w-sm text-center">
+              <button
+                onClick={onStartCreating}
+                className="group relative inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white transition-all duration-300 bg-gradient-to-r from-black to-gray-800 rounded-full hover:from-gray-800 hover:to-black hover:scale-105 hover:shadow-2xl hover:shadow-black/25"
+              >
+                <span className="relative z-10">Start Creating Now</span>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-600 to-gray-700 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+                <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+              </button>
+            </div>
           </div>
 
           {/* Right Side - NEW AESTHETIC: Cascading Glass Cards */}
-          {/* CHANGED: Swapped absolute layout for a flexbox layout (flex-col stacks on mobile, md:flex-row on desktop) */}
           <div className="md:col-span-2 mt-12 sm:mt-16 flex flex-col md:flex-row gap-4 items-start justify-center">
 
             {/* Card 1: Time */}
-            {/* CHANGED: Removed absolute and positioning classes */}
             <div className="w-44 h-32 sm:w-48 sm:h-36 bg-white/30 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-4 flex flex-col justify-between transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer -rotate-3">
               <FastForward className="w-6 h-6 text-black/70" />
               <div>
@@ -77,7 +78,6 @@ const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             {/* Card 2: Cost */}
-            {/* CHANGED: Removed absolute and positioning classes, removed z-10 */}
             <div className="w-44 h-32 sm:w-48 sm:h-36 bg-white/30 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-4 flex flex-col justify-between transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer rotate-2">
               <DollarSign className="w-6 h-6 text-black/70" />
               <div>
@@ -87,7 +87,6 @@ const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             {/* Card 3: Engagement */}
-            {/* CHANGED: Removed absolute and positioning classes */}
             <div className="w-44 h-32 sm:w-48 sm:h-36 bg-white/30 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-4 flex flex-col justify-between transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer -rotate-2">
               <TrendingUp className="w-6 h-6 text-black/70" />
               <div>
