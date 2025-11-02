@@ -12,7 +12,20 @@ import VideoCarousel from '../components/VideoCarousel';
 import ImageCarousel from '../components/ImageCarousel';
 import Footer from '../components/Footer';
 
-// ... (interfaces remain the same) ...
+interface Video {
+  id: number;
+  title: string;
+  thumbnail: string;
+  video: string;
+  orientation: string;
+}
+
+interface Image {
+  id: number;
+  title: string;
+  thumbnail: string;
+  orientation: string;
+}
 
 interface HomePageProps {
   videoData: Video[];
@@ -31,7 +44,12 @@ const HomePage: React.FC<HomePageProps> = ({
 }) => {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden">
-      {/* ... (Background Effects remain the same) ... */}
+      {/* Background Effects */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(0,0,0,0.05),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(0,0,0,0.05),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:100px_100px]" />
+      </div>
 
       {/* Hero Section */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 pb-8">
@@ -52,8 +70,8 @@ const HomePage: React.FC<HomePageProps> = ({
               Unleashing storytelling with AI creativity.
             </p>
 
-            {/* CHANGED: Wrapped button in a div with max-w-sm and text-center */}
-            <div className="max-w-sm text-center">
+            {/* CHANGED: Removed max-w-sm to center the button in the full column */}
+            <div className="text-center">
               <button
                 onClick={onStartCreating}
                 className="group relative inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white transition-all duration-300 bg-gradient-to-r from-black to-gray-800 rounded-full hover:from-gray-800 hover:to-black hover:scale-105 hover:shadow-2xl hover:shadow-black/25"
@@ -97,8 +115,6 @@ const HomePage: React.FC<HomePageProps> = ({
             
           </div>
         </div>
-
-        {/* ... (Rest of the page remains the same) ... */}
 
         {/* Video Ads Carousel */}
         <div className="w-full max-w-5xl mx-auto mb-8">
