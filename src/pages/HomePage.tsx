@@ -80,8 +80,8 @@ const HomePage: React.FC<HomePageProps> = ({
             <div className="w-44 h-40 sm:w-48 sm:h-44 bg-white/30 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-4 sm:p-5 flex flex-col justify-center items-center text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer -rotate-3">
               <FastForward className="w-8 h-8 text-black/70" />
               <div className="mt-2 text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-black">1/10th</div>
-                <div className="text-base sm:text-lg font-semibold text-black/90">Timez</div>
+                <div className="text-2xl sm:text-3xl font-bold text-black">1/1a0th</div>
+                <div className="text-base sm:text-lg font-semibold text-black/90">Time</div>
                 <div className="text-xs sm:text-sm font-medium text-black/70 mt-1">Create in Minutes, Not Weeks</div>
               </div>
             </div>
