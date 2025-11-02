@@ -104,7 +104,7 @@ const HomePage: React.FC<HomePageProps> = ({
               <div className="mt-2 text-center">
                 <div className="text-2xl sm:text-3xl font-bold text-black">5X</div>
                 <div className="text-base sm:text-lg font-semibold text-black/90">Engagement</div>
-                <div className="text-xs sm:text-sm font-medium text-black/70 mt-1">Ads That Perform 5× Better</div>
+                <div className="text-xs sm:text-sm font-medium text-black/70 mt-1">Ads That Interact Better</div>
               </div>
             </div>
             
