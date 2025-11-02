@@ -70,16 +70,20 @@ const HomePage: React.FC<HomePageProps> = ({
               Unleashing storytelling with AI creativity.
             </p>
 
-            {/* CHANGED: Swapped 'text-center' for 'flex justify-center' to force centering */}
-            <div className="flex justify-center">
-              <button
-                onClick={onStartCreating}
-                className="group relative inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white transition-all duration-300 bg-gradient-to-r from-black to-gray-800 rounded-full hover:from-gray-800 hover:to-black hover:scale-105 hover:shadow-2xl hover:shadow-black/25"
-              >
-                <span className="relative z-10">Start Creating Now</span> 
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-600 to-gray-700 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
-                <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-              </button>
+            {/* CHANGED: Using a 3-column grid to force the button into the center column */}
+            <div className="grid grid-cols-3">
+              <div className="col-span-1"></div> {/* Empty spacer */}
+              <div className="col-span-1 flex justify-center"> {/* Center button in middle column */}
+                <button
+                  onClick={onStartCreating}
+                  className="group relative inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white transition-all duration-300 bg-gradient-to-r from-black to-gray-800 rounded-full hover:from-gray-800 hover:to-black hover:scale-105 hover:shadow-2xl hover:shadow-black/25"
+                >
+                  <span className="relative z-10">Start Creating Now</span>
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-600 to-gray-700 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+                  <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+                </button>
+              </div>
+              <div className="col-span-1"></div> {/* Empty spacer */}
             </div>
           </div>
 
@@ -164,4 +168,4 @@ const HomePage: React.FC<HomePageProps> = ({
   );
 };
 
-export default HomePage; 
+export default HomePage;
