@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import DashboardLayout from '../components/dashboard/DashboardLayout';
 import BrandManager from '../components/dashboard/BrandManager';
 import ChatAgent from '../components/dashboard/ChatAgent';
+import ChatAdmin from '../components/dashboard/ChatAdmin';
 import Downloads from '../components/dashboard/Downloads';
 import UserProfile from '../components/dashboard/UserProfile';
 import AdminPanel from '../components/dashboard/AdminPanel';
@@ -26,7 +27,7 @@ const DashboardPage: React.FC = () => {
       case 'brands':
         return <BrandManager />;
       case 'chat':
-        return <ChatAgent />;
+        return isAdmin ? <ChatAdmin /> : <ChatAgent />;
       case 'downloads':
         return <Downloads />;
       case 'profile':
